@@ -58,16 +58,24 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
-
+|RF-001| Permitir o cadastro de usuário                           | ALTA | 
+|RF-002| Permitir o acesso aos conteúdos associados ou públicos   | ALTA |
+|RF-003| Mostrar os conteúdos criados pelos professores           | ALTA |
+|RF-004| Permitir pesquisas por palavras-chave                    | MÉDIA |
+|RF-005| Permitir associação de hierarquia entre usuários         | MÉDIA |
+|RF-006| Permitir a criação de novos conteúdos ou atividades      | ALTA |
+|RF-007| Permitir interação na plataforma                         | BAIXA |
+|RF-008| Permitir a seleção de favoritos                          | BAIXA |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | ALTA | 
+|RNF-002| O site deve possuir cores de alto contraste                       | ALTA |
+|RNF-003| O site deve ser publicado na internet                             | ALTA |
+
+
 
 > Com base nas Histórias de Usuário, enumere os requisitos da sua
 > solução. Classifique esses requisitos em dois grupos:
@@ -94,7 +102,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|02| O projeto deve ser apenas uma aplicação web           |
+
 
 
 > Enumere as restrições à sua solução. Lembre-se de que as restrições
