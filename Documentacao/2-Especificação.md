@@ -7,13 +7,17 @@
 > realizar a especificações do projeto
 
 ## Personas
-
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em
-se desenvolver profissionalmente através de um mestrado fora do país,
-pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está
-buscando uma agência que o ajude a encontrar universidades na Europa
-que aceitem alunos estrangeiros.
-
+> - 1: João Pedro tem 13 anos, estuda em uma escola pública, é de baixa renda, tímido e
+possui uma deficiência intelectual que o impede de aprender no mesmo ritmo que os demais alunos 
+de sua escola. Por causa dessa defiicência, ele não consegue realizar as atividades escolares e, por 
+isso, não vai bem na escola.
+> - 2: Nanda possui 16 anos, estuda em uma escola particular, é extrovertida e gosta de passar o tempo
+na internet. Apesar disso, ela possui muitas dificuldades em aprender as matérias de exatas na escola, 
+principalmente matemática, sendo que a escola dela possui um ritmo muito acelerado de ensino, e ela 
+precisa de ajuda para acompanhar.
+> - 3: Geraldo possui 35 anos, trabalha como professor de apoio auxiliando alunos com deficiência 
+cognitiva, gosta muito do que faz, porém, percebe que precisa de algo externo à escola para ajudar ao 
+máximo seus alunos, pois, durante o horário padrão, eles não conseguem acompanhar o ritmo.
 
 > Enumere e detalhe as personas da sua solução. Para
 > tanto, baseie-se tanto nos documentos disponibilizados na disciplina
@@ -36,8 +40,10 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Aluno - João       | Explicações alternativas das matérias da escola | Melhorar meu desempenho escolar                          |
+|Aluno - Nanda      | Reforço nas matérias de exatas do Ensino Médio  | Me preparar melhor para vestibulares                     |
+|Professor - Geraldo| Uma forma extraescolar de auxiliar meus alunos  | Garantir que eles aprendam mesmo com muitas dificuldades |
+
 
 > Apresente aqui as histórias de usuário que são relevantes para o
 > projeto de sua solução. As Histórias de Usuário consistem em uma
