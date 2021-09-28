@@ -7,10 +7,7 @@
 
 ## Divisão de Papéis
 
-> Na Sprint, fizemos:
-> - Arthur: 
-> - Rodolfo:
-> - André: 
+> Todos fazem parte da equipe de desenvolvimento.
 > **Links Úteis**:
 > - [11 Passos Essenciais para Implantar Scrum no seu 
 > Projeto](https://mindmaster.com.br/scrum-11-passos/)

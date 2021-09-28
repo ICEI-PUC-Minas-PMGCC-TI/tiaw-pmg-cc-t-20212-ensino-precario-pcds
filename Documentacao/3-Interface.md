@@ -10,7 +10,8 @@
 
 ## User Flow
 
-![Exemplo de UserFlow](images/userflow_aluno.jpg)
+![Userflow Aluno](images/userflow_aluno.jpg)
+![Userflow Professor](images/userflow_professor.jpg)
 
 ## Wireframes
 > **Comece a simulação partir do flow1 para o início na visão do aluno e, para o professor, pelo flow6**
@@ -29,3 +30,5 @@
 > - ![Tela inicial - professor](images/userflow1p.png)
 > - Tela criar conteúdo
 > - ![Tela criar conteúdo](images/userflow2p.png)
+> - Tela criar questão
+> - ![Tela criar questão](images/userflow3p.png)
