@@ -1,12 +1,16 @@
 # Gerenciamento de Projeto
 
-> Descreva aqui a metodologia de trabalho do grupo para atacar o
-> problema.
+> Utilizamos, até então, a metodologia Scrum aliada ao Design Thinking.
+> As ferramentas de Design Thinking (como a Matriz CSD e o Mapa de Stakeholders) foram utilizadas 
+> e organizadas totalmente em grupo, porém, com a separação de coisas como metodologia e 
+> Wireframes, o grupo se dividiu para fazer as tarefas - de modo a melhorar a produtividade no Sprint.
 
 ## Divisão de Papéis
 
-> Apresente a divisão de papéis entre os membros do grupo.
->
+> Na Sprint, fizemos:
+> - Arthur: 
+> - Rodolfo:
+> - André: 
 > **Links Úteis**:
 > - [11 Passos Essenciais para Implantar Scrum no seu 
 > Projeto](https://mindmaster.com.br/scrum-11-passos/)
@@ -14,30 +18,32 @@
 
 ## Processo
 
-> Coloque  informações sobre detalhes da implementação do Scrum seguido
-> pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar
-> o andamento do projeto, a execução das tarefas e o status de desenvolvimento
-> da solução.
-> 
-> **Links Úteis**:
-> - [Tutorial Trello](https://trello.com/b/8AygzjUA/tutorial-trello)
-> - [Gestão ágil de projetos com o Trello](https://www.youtube.com/watch?v=1o9BOMAKBRE)
-> - [Gerência de projetos - Trello com Scrum](https://www.youtube.com/watch?v=DHLA8X_ujwo)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
-
+> A maior parte do processo de desenvolvimento do projeto está mostrado visualmente no Miro, 
+> outras disponíveis no Figma (tudo em suas respectivas áreas do GitHub). O kanban do projeto foi 
+> feito dentro do próprio GitHub e está disponível na aba "Projetos".
 ## Ferramentas
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de diagramação
+- VSCode
+- Miro
+- MSTeams
+- Editores Google (PowerPoint, Docs, etc)
+- Kanban GitHub
+- Figma
 
-O editor de código foi escolhido porque ele possui uma integração com o
-sistema de versão. As ferramentas de comunicação utilizadas possuem
-integração semelhante e por isso foram selecionadas. Por fim, para criar
-diagramas utilizamos essa ferramenta por melhor captar as
-necessidades da nossa solução.
+O VSCode foi escolhido por já ser de uso comum de todos do grupo, além de que 
+possui fácil integração com o GitHub.
+O Miro foi utilizado por ser uma excelente ferramenta visual para colocar, principalmente, os 
+artefatos de Design Thinking.
+O MSTeams é de fácil acesso por todos, justamente por já ser a utilização padrão 
+da universidade, além de que possui diversas ferramentas que facilitam a visualização do andamento.
+Os editores google foram utilizados por serem de comum acesso por todos, e eles serviram para a 
+maioria dos rascunhos que deram origem ao resultado final.
+O andamento da Sprint foi feito via kanban do GitHub. Não há motivos para utilização de outras ferramentas 
+se o próprio GitHub (a ferramenta que mais iremos utilizar) já disponibiliza.
+A criação dos Wireframes, userflow e protótipo de baixa fidelidade foi realizada no Figma, que facilita 
+muito a criação deles, por ser de fácil uso.
 
 > Liste quais ferramentas foram empregadas no desenvolvimento do
 > projeto, justificando a escolha delas, sempre que possível.
