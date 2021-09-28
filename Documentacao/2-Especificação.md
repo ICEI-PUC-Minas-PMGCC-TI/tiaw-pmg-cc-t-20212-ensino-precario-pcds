@@ -80,7 +80,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | ALTA | 
 |RNF-002| O site deve possuir cores de alto contraste                       | ALTA |
 |RNF-003| O site deve ser publicado na internet                             | ALTA |
-
+|RNF-004| O site deve ter um design simples e de fácil entendimento         | ALTA |
 
 
 > Com base nas Histórias de Usuário, enumere os requisitos da sua
