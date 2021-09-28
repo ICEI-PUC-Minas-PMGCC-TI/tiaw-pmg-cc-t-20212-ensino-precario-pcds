@@ -1,5 +1,17 @@
 # Introdução
 
+No mundo atual,PCDs(pessoa com deficiência)tem grandes dificuldades de entrar no mercado trabalho
+por vários motivos,como:
+
+* Preconceito por parte dos empregadores
+* Falta de estrutura necessária para eles nos locais de trabalho
+
+ Este projeto almeja então ajudar a combater outro fator que contribui para essa triste realidade,
+ o fato de que muitos PCDs,desde cedo,não conseguem ter acesso a suportes necessários durante
+ suas trajetórias escolares.Entretanto,como essas dificuldades variam de deficiência para deficiência,
+ o site a ser feito irá focar em matérias de exatas(matemática,química e física) para PCDs com 
+ algum grau de deficiência cognitiva.
+ 
 ## Problema
 
 * O ensino de alunos com deficiência é considerado bom o suficiente para uma formação intelectual saudável?
@@ -19,4 +31,3 @@
 ## Público-Alvo
 
 * Estudantes brasileiros, que possuem deficiência cognitiva, com idade abaixo de 18 anos e professores desses alunos especiais.
- 
