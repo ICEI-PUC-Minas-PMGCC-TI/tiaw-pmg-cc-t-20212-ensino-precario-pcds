@@ -75,11 +75,14 @@ html{
     margin: 0;
     justify-content: space-between;
 }
-.main section{
-    max-width: 70%;
-    position: relative;
-    left: 30%;
+.conteudo{
+    width: 76%;
 }
+.main section{
+    position: relative;
+    left: 24%;
+}
+
 /*   ROW MAIN FIM   */
 
 /*     TAGS MAIN FIM     */
