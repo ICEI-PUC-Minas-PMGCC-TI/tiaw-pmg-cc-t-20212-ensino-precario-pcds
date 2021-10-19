@@ -27,23 +27,31 @@
     <main class="container">
         <div class="row main">
             <section class="main conteudo">
-                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
-                    <h1>
-                        Essa é a tela de conteúdos, apenas. Essa é a tela de conteúdos, apenas.
-                      </h1>
-                      <p>
-                        Essa é a tela de conteúdos, apenas. Essa é a tela de conteúdos, apenas.
-                        Essa é a tela de conteúdos, apenas. Essa é a tela de conteúdos, apenas.
-                        Essa é a tela de conteúdos, apenas. Essa é a tela de conteúdos, apenas.
-                        Essa é a tela de conteúdos, apenas. Essa é a tela de conteúdos, apenas.
-                      </p>
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12 my-2">
+                    <h2>
+                        Indique abaixo qual tipo de conteúdo deseja postar:
+                    </h2>
+                    <select id="tipoMaterial">
+                        <option hidden selected disabled>Selecione o tipo:</option>
+                        <option value="texto">Texto</option>
+                        <option value="imagem">Imagem</option>
+                        <option value="video">Video</option>
+                    </select>
+                    <button id="btnConteudo">Ok</button>
+                </div>
+                <div class="ml-2" id="conteudoColocado">
+                    <!--Aqui fica a parte de colocar novo conteudo,criada dinamicamente-->
+                </div>
+                <div id="conteudoPostado">
+                    <!--Vou jogar os conteudos criados aqui dentro-->
                 </div>
             </section>
             <aside class="sidebar">
                 <nav class="col-12 col-md-2 col-lg-2 col-sm-1 sidebar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="https://pucminas.br"><img src="img/logo_puc.png" class="logo_puc"></a>
+                            <a class="nav-link" href="https://pucminas.br"><img src="img/logo_puc.png"
+                                    class="logo_puc"></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="main.html"><i class="fab fa-algolia"></i>Pendências</a>
@@ -85,6 +93,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <script src="js/scriptsConteudo.js"></script>
 </body>
 
 </html>
