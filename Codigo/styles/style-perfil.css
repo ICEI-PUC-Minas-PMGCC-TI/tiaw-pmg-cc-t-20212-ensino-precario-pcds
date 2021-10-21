@@ -1,0 +1,119 @@
+
+/*     TAGS GERAIS INICIO     */
+html{
+    margin: 0;
+    padding: 0;
+}
+/*     TAGS GERAIS FIM     */
+
+/*     TAGS HEADER INICIO     */
+
+.navbar{
+    background: #c00221;
+    position: relative;
+    z-index: 3;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+.navbar span{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+.navbar input{
+    border: 0px solid black;
+    border-radius: 10px;
+    align-items: center;
+}
+.navbar i{
+    font-size: 2em;
+    color: #fff;
+}
+
+/*     TAGS HEADER FIM     */
+
+/*     TAGS MAIN INICIO     */
+
+.sidebar{
+    width: 20%;
+    background: #dc3545;
+    height: 100%;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    
+}
+.logo_puc{
+    width: 150px;
+}
+.sidebar ul:first-child{
+    padding-top: 40%;
+}
+.sidebar nav ul li a{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: #fff;
+}
+.sidebar nav ul li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.sidebar nav ul{
+    position: sticky;
+    right: 15px;
+}
+.sidebar i{
+    padding-right: 30px;
+    font-size: 1.3em;
+    max-width: 20px;
+}
+
+/*   ROW MAIN INICIO   */
+
+.main{
+    background: #fce6e6;
+    margin: 0;
+    justify-content: space-between;
+}
+.main div h1{
+    position: inherit;
+    left: 26%;
+    width: 74%;
+}
+.main i{
+    position: relative;
+    left: 0;
+}
+.main img{
+    position: inherit;
+    left: 54%;
+    width: 230px;
+    height: 230px;
+    border-radius: 100%;
+}
+.main .materias{
+    position: relative;
+    left: 50%;
+}
+.main .materias label{
+    display: block;
+}
+.main img:hover{
+    color: red;
+}
+.main label i{
+    position: absolute;
+    left: 50%;
+}
+#btnAlterarNomeEmail{
+    position: relative;
+    left: 85%;
+}
+#arquivoFoto{
+    position: relative;
+    left: 100%;
+}
+/*   ROW MAIN FIM   */
+
+/*     TAGS MAIN FIM     */

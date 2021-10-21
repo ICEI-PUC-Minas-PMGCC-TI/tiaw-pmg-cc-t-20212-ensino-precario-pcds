@@ -61,11 +61,7 @@ html{
     border-radius: 25px;
 }
 .main .bloco{
-    padding: 5px;
-}
-form > input{
-    margin-top: 40px;
-    position: relative;
+    padding: 0 10px;
 }
 .main p{
     margin-top: 10px;
