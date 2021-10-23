@@ -121,7 +121,7 @@ function loginUser(login, senha) {
 
 
 function pegarLoginSenha() {
-    let login = document.getElementById('email').value;
+    let login = document.getElementById('emailLogin').value;
     let senha = document.getElementById('senhaLogin').value;
     let estado = loginUser(login, senha);
     if (estado) {
@@ -130,11 +130,3 @@ function pegarLoginSenha() {
         alert('Algo deu errado!');
     }
 }
-
-
-
-
-
-
-
-
