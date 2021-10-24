@@ -7,13 +7,31 @@ function aparecerColocacao(opcaoUsuario) {
     let conteudoColocar = document.getElementById("conteudoColocado");
     switch (opcaoUsuario) {
         case "texto":
-            conteudoColocar.innerHTML = `<div class="caixinha"><label for="disciplinaTexto">Disciplina deste conteúdo:</label><input type="text" id="disciplinaTexto" name="disciplinaTexto"></div><div class="caixinha"><label for="tituloTexto">Título para seu texto:</label><input type="text" id="tituloTexto" name="tituloTexto"></div><div class="caixinha"><label class="d-block" for="corpoTexto">Coloque abaixo o texto principal:</label><textarea type="text" id="corpoTexto" class="d-block" rows="20" cols="45" classname="corpoTexto"></textarea><button onclick="desaparecerColocacaoTexto()">Ok</button></div>`;
+            conteudoColocar.innerHTML = `<div class="caixinha border border-dark input-group my-3"><label for="disciplinaTexto">Disciplina deste conteúdo:</label>
+            <input type="text" id="disciplinaTexto" name="disciplinaTexto"></div>
+            <div class="caixinha border border-dark input-group my-3"><label for="tituloTexto">Título para seu texto:</label>
+            <input type="text" id="tituloTexto" name="tituloTexto"></div>
+            <div class="caixinha border border-dark input-group my-3"><label class="d-block" for="corpoTexto">Coloque abaixo o texto principal:</label>
+            <textarea type="text" id="corpoTexto" class="d-block" rows="20" cols="45" classname="corpoTexto"></textarea>
+            <button onclick="desaparecerColocacaoTexto()">Ok</button></div>`;
             break;
         case "imagem":
-            conteudoColocar.innerHTML = `<label for="disciplinaImagem">Disciplina deste conteúdo:</label><input type="text" id="disciplinaImagem" name="disciplinaImagem"><label for="tituloImagem">Título para a imagem:</label><input type="text" id="tituloImagem" name="tituloImagem"><input type="text" id="urlImagem" name="urlImagem"><label for="urlImagem">Insira a URL da imagem:</label><button onclick="desaparecerColocacaoImagem()">Ok</button>`;
+            conteudoColocar.innerHTML = `<div class="caixinha border border-dark input-group my-3"><label for="disciplinaImagem">Disciplina deste conteúdo:</label>
+            <input type="text" id="disciplinaImagem" name="disciplinaImagem"></div>
+            <div class="caixinha border border-dark input-group my-3"><label for="tituloImagem">Título para a imagem:</label>
+            <input type="text" id="tituloImagem" name="tituloImagem"></div>
+            <div class="caixinha border border-dark input-group my-3"><label for="urlImagem">Insira a URL da imagem:</label>
+            <input type="text" id="urlImagem" name="urlImagem"></div>
+            <button onclick="desaparecerColocacaoImagem()">Ok</button>`;
             break;
         case "video":
-            conteudoColocar.innerHTML = `<label for="disciplinaVideo">Disciplina deste conteúdo:</label><input type="text" id="disciplinaVideo" name="disciplinaVideo"><label for="tituloVideo">Título para o vídeo:</label><input type="text" id="tituloVideo" name="tituloVideo"><input type="text" id="urlVideo" name="urlVideo"><label for="urlVideo">Insira a parte final da URL do vídeo:</label><button onclick="desaparecerColocacaoVideo()">Ok</button>`;
+            conteudoColocar.innerHTML = `<div class="caixinha border border-dark input-group my-3"><label for="disciplinaVideo">Disciplina deste conteúdo:</label>
+            <input type="text" id="disciplinaVideo" name="disciplinaVideo"></div>
+            <div class="caixinha border border-dark input-group my-3"><label for="tituloVideo">Título para o vídeo:</label>
+            <input type="text" id="tituloVideo" name="tituloVideo"></div>
+            <div class="caixinha border border-dark input-group my-3"><label for="urlVideo">Insira a parte final da URL do vídeo:</label>
+            <input type="text" id="urlVideo" name="urlVideo"></div>
+            <button onclick="desaparecerColocacaoVideo()">Ok</button>`;
             break;
     }
 
