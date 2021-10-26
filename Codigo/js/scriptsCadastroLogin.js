@@ -130,7 +130,7 @@ function pegarLoginSenha() {
     }
     else
     {
-         document.getElementById('email').value ="";
+         document.getElementById('emailLogin').value ="";
          document.getElementById('senhaLogin').value ="";
          Aviso('Seu login ou sua senha estão errados!');
     }
