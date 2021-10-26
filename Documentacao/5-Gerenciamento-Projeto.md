@@ -1,13 +1,23 @@
 # Gerenciamento de Projeto
 
-> Utilizamos, até então, a metodologia Scrum aliada ao Design Thinking.
-> As ferramentas de Design Thinking (como a Matriz CSD e o Mapa de Stakeholders) foram utilizadas 
-> e organizadas totalmente em grupo, porém, com a separação de coisas como metodologia e 
-> Wireframes, o grupo se dividiu para fazer as tarefas - de modo a melhorar a produtividade no Sprint.
+### Sprint 0
+
+O metódo "brainstorm" foi utilizado nas sessões iniciais de idealização do projeto,
+ou seja todos do grupo davam palpites sobre o que deveria ser feito e como,e as ideias
+que mais pareciam ser eficientes/possíveis para o problema em questão e para nosso
+nível de habilidade,de acordo com a opinião de todos os integrantes do grupo,eram acatadas.
 
 ## Divisão de Papéis
 
-> Todos fazem parte da equipe de desenvolvimento.
+### Sprint 0
+
+Apesar de não haver divisão clara de papéis nessa sprint em especifíco,o que foi 
+observado na prática é que o integrante Arthur agiu como o líder do projeto,pela sua 
+experiência anterior em outro projeto sobre o mesmo assunto,e capacidade maior de tomar a 
+iniciativa nas reuniões do grupo.
+
+> Apresente a divisão de papéis entre os membros do grupo.
+>
 > **Links Úteis**:
 > - [11 Passos Essenciais para Implantar Scrum no seu 
 > Projeto](https://mindmaster.com.br/scrum-11-passos/)
