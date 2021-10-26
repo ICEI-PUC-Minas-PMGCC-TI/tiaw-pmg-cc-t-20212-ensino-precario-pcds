@@ -1,3 +1,10 @@
+
+function gerarID() {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+    // after the decimal.
+    return '_' + Math.random().toString(36).substr(2, 9);
+}
 function leDados() {
     let strDados = localStorage.getItem('db');
     let objDados = {};
@@ -8,9 +15,9 @@ function leDados() {
     else {
         objDados = {
             usuarios: [
-                { nome: "João da Silva", email: "joaosilva672@hotmail.com", senha: "123456789" },
-                { nome: "Maria das Graças", email: "gracasmaria@gmail.com", senha: "123456789" },
-                { nome: "Pedro Gomes", email: "pedro.gomes@gmail.com", senha: "123456789" }
+                { usuario_id: gerarID(), nome: "João da Silva", email: "joaosilva672@hotmail.com", senha: "123456789", professor: true },
+                { usuario_id: gerarID(), nome: "Maria das Graças", email: "gracasmaria@gmail.com", senha: "123456789", professor: true },
+                { usuario_id: gerarID(), nome: "Pedro Gomes", email: "pedro.gomes@gmail.com", senha: "123456789", professor: true }
             ]
         }
     }
@@ -18,17 +25,32 @@ function leDados() {
     return objDados;
 }
 function validaEmail(field) {
+    let objDados = leDados();
     let usuario = field.value.substr(0, field.value.indexOf("@")); // o que é escrito ANTES DO "@"
     let dominio = field.value.substr(field.value.indexOf("@") + 1, field.value.length); // o que é escrito DEPOIS DO "@"
+
+
     let result = false;
     if (usuario.length >= 1 && dominio.length >= 3 && usuario.search("@") == -1 &&
         dominio.search("@") == -1 && usuario.search(" ") == -1 && dominio.search(" ") == -1 &&
-        dominio.search(".") != -1 && dominio.indexOf(".") >= 1 && dominio.lastIndexOf(".") < dominio.length - 1) {
-        result = true;
+        dominio.search(".") != -1 && dominio.indexOf(".") >= 1 && dominio.lastIndexOf(".") < dominio.length - 1 &&
+        usuario.indexOf(".") < field.value.indexOf("@") - 1) {
+        for (let i = 0; i < objDados.usuarios.length; i++) {
+            let usuario = objDados.usuarios[i];
+            if (field.value == usuario.email) {
+                result = false;
+                alert("Esse e-mail já foi cadastrado.")
+                return result;
+            } else {
+                result = true;
+            }
+        }
+
     }
 
     return result;
 }
+
 function salvaDados(dados) {
     localStorage.setItem('db', JSON.stringify(dados));
 }
@@ -37,10 +59,12 @@ function novoUsuario() {
     // Ler os dados do localStorage
     let objDados = leDados();
     // Incluir um novo contato
+    let strId = gerarID();
     let strNome = document.getElementById('nomeCadastro').value;
     let strEmail = document.getElementById('emailCadastro');
     let strSenha1 = document.getElementById('senhaCadastro1').value;
     let strSenha2 = document.getElementById('senhaCadastro2').value;
+    let isProfessor = document.getElementById('simProfessor').checked;
     if (strNome.length > 0) {
         if (!(validaEmail(strEmail))) {
             alert("Digite um e-mail válido.");
@@ -48,9 +72,11 @@ function novoUsuario() {
             if ((strSenha1.length > 0) && (strSenha2.length > 0)) {
                 if ((strSenha1 == strSenha2)) {
                     var novoUsuario = {
+                        usuario_id: strId,
                         nome: strNome,
                         email: strEmail.value,
-                        senha: strSenha1
+                        senha: strSenha1,
+                        professor: isProfessor
                     }
                     objDados.usuarios.push(novoUsuario);
                     alert("Cadastro concluido com sucesso.");
@@ -75,9 +101,9 @@ function novoUsuario() {
 }
 
 nomeCadastro.oninput = function () {
-    let caractereInvalido = '1234567890!@#$%¨&*()`´^~{}[]<.>,:;\"\\|\'-_=+/§ªº¹²³£¢¬?°';
+    let caractereInvalidoNome = '1234567890!@#$%¨&*()`´^~{}[]<.>,:;\"\\|\'-_=+/§ªº¹²³£¢¬?°';
     let ultimoCarater = nomeCadastro.value.charAt(nomeCadastro.value.length - 1);
-    if (caractereInvalido.indexOf(ultimoCarater) >= 0) {
+    if (caractereInvalidoNome.indexOf(ultimoCarater) >= 0) {
         nomeCadastro.value = nomeCadastro.value.substr(0, nomeCadastro.value.length - 1);
     };
 }
