@@ -102,26 +102,43 @@ function mostrarConteudoTela(){
         switch(opcao)
         {
             case '0':
-            conteudoTela.innerHTML=`<h2>${materiais.material[index].titulo}</h2><p>${materiais.material[index].url}</p>`;
+            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+            <div class="caixa border border-dark my-3 mx-3"><p class="text-center">${materiais.material[index].url}</p></div>
+            <div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
             break;
 
             case '1':
-            conteudoTela.innerHTML=`<h2>${materiais.material[index].titulo}</h2><img src="${materiais.material[index].url}" >`;
+            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2>${materiais.material[index].titulo}</h2></div>
+            <div class="caixa border border-dark my-3 mx-3"><img src="${materiais.material[index].url}"></div>
+            <div class="d-flex justify-content-center"><button class="mx-3 my-3" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
             break;
 
             case '2':
                 let name ='https://www.youtube.com/embed/';
                 name+=materiais.material[index].url;
-            conteudoTela.innerHTML=`<h2>${materiais.material[index].titulo}</h2><iframe width="727" height="409" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2>${materiais.material[index].titulo}</h2></div>
+            <iframe width="727" height="409" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
             break;
         }
     }
+}
+function retirarConteudo(index){
+    let conteudoTela =document.getElementById('conteudoPostado');
+    conteudoTela.innerHTML='';
+    let parser = localStorage.getItem("materialTodo");
+    let materiais = JSON.parse(parser);
+    materiais.material.splice(index,1);
+    localStorage.setItem('materialTodo', JSON.stringify(materiais));
+    adicionarMaterialDropdown();
 }
 window.onload = function () {
     if (localStorage.getItem("primeiraVezDb") === null) {
         let conteudoDb = {material: [{disciplina: 'teste' ,url: 'teste' , titulo: 'teste',textoImagemVideo:'3' }]} 
         localStorage.setItem("materialTodo", JSON.stringify(conteudoDb));
-        localStorage.setItem("PrimeiraVezDb", true);
+        localStorage.setItem("primeiraVezDb", true);
+    }else{
+        adicionarMaterialDropdown();
     }
 }
 document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);

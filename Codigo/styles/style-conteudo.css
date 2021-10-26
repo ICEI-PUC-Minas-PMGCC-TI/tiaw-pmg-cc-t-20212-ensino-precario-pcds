@@ -3,3 +3,8 @@
     border-radius: 8px;
     display: inline-block;
 }
+.caixa{
+    background-color: pink;
+    border-radius: 8px;
+    display: block;
+}
