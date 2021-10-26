@@ -20,117 +20,127 @@
     </header>
 
     <main class="container">
-            <section class="row main login-cadastro">
-                <div class="col-12 col-md-12 col-lg-6 col-sm-12">
-                    <div class="carrosel">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <h4>Faça seu login</h4>
-                                    
-                                        <div class="bloco">
-                                            <label for="emailLogin">
-                                                <i class="fas fa-at"></i>
-                                            </label>
-                                            <input type="email" placeholder="nome@exemplo.com" id="emailLogin">
-                                        </div>
-                                        <div class="bloco">
-                                            <label for="senhaLogin">
-                                                <i class="fas fa-lock"></i>
-                                            </label>
-                                            <input type="password" placeholder="Senha" id="senhaLogin">
-                                        </div>
-                                        <div class="bloco">
-                                            <span class="recuperar"><a href="#modalRecuperarSenha">Esqueci a senha</a></span>
-                                        </div>
-                                        <input type="submit" value="Entrar" onclick="pegarLoginSenha()" class="btn btn-light">
-                                    
+        <section class="row main login-cadastro">
+            <div class="col-12 col-md-12 col-lg-6 col-sm-12">
+                <div class="carrosel">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <h4>Faça seu login</h4>
+
+                                <div class="bloco">
+                                    <label for="emailLogin">
+                                        <i class="fas fa-at"></i>
+                                    </label>
+                                    <input type="email" placeholder="nome@exemplo.com" onclick="pararerro()"
+                                        id="emailLogin">
                                 </div>
+                                <div class="bloco">
+                                    <label for="senhaLogin">
+                                        <i class="fas fa-lock"></i>
+                                    </label>
+                                    <input type="password" placeholder="Senha" onclick="pararerro()" id="senhaLogin">
+                                </div>
+                                <div class="bloco">
+                                    <span class="recuperar"><a href="#modalRecuperarSenha">Esqueci a senha</a></span>
+                                </div>
+                                <input type="submit" value="Entrar" onclick="pegarLoginSenha()" class="btn btn-light">
+                                <div class="bloco" id="erro"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-12 col-lg-6 col-sm-12">
-                    <div class="infos">
-                        <form>
-                            <h4>Cadastre-se</h4>
+            </div>
+            <div class="col-12 col-md-12 col-lg-6 col-sm-12">
+                <div class="infos">
+                    <form>
+                        <h4>Cadastre-se</h4>
 
-                            <div class="bloco">
-                                <label for="nomeCadastro">
-                                    <i class="fas fa-user-alt"></i>
-                                </label>
-                                <input type="text" placeholder="Seu nome" id="nomeCadastro">
-                            </div>
-                            <div class="bloco">
-                                <label for="emailCadastro">
-                                    <i class="fas fa-at"></i>
-                                </label>
-                                <input type="email" placeholder="nome@exemplo.com" id="emailCadastro"><span id="msgEmail"></span>
-                            </div>
-                            <div class="bloco">
-                                <label for="senhaCadastro1">
-                                    <i class="fas fa-lock"></i>
-                                </label>
-                                <input type="password" placeholder="Senha" id="senhaCadastro1">
-                            </div>
-                            <div class="bloco">
-                                <label for="senhaCadastro2">
-                                    <i class="fas fa-lock"></i>
-                                </label>
-                                <input type="password" placeholder="Repetir senha" id="senhaCadastro2">
-                            </div>
-                            <div class="bloco">
-                                <span>Você é professor?</span>
-                                <label for="simProfessor">Sim</label>
-                                <input type="radio" id="simProfessor" name="funcao">
-                                <label for="naoProfessor">Não</label>
-                                <input type="radio" id="naoProfessor" name="funcao" checked>
+                        <div class="bloco">
+                            <label for="nomeCadastro">
+                                <i class="fas fa-user-alt"></i>
+                            </label>
+                            <input type="text" placeholder="Seu nome" id="nomeCadastro">
+                        </div>
+                        <div class="bloco">
+                            <label for="emailCadastro">
+                                <i class="fas fa-at"></i>
+                            </label>
+                            <input type="email" placeholder="nome@exemplo.com" id="emailCadastro"><span
+                                id="msgEmail"></span>
+                        </div>
+                        <div class="bloco">
+                            <label for="senhaCadastro1">
+                                <i class="fas fa-lock"></i>
+                            </label>
+                            <input type="password" placeholder="Senha" id="senhaCadastro1">
+                        </div>
+                        <div class="bloco">
+                            <label for="senhaCadastro2">
+                                <i class="fas fa-lock"></i>
+                            </label>
+                            <input type="password" placeholder="Repetir senha" id="senhaCadastro2">
+                        </div>
+                        <div class="bloco">
+                            <span>Você é professor?</span>
+                            <label for="simProfessor">Sim</label>
+                            <input type="radio" id="simProfessor" name="funcao">
+                            <label for="naoProfessor">Não</label>
+                            <input type="radio" id="naoProfessor" name="funcao" checked>
 
-                            </div>
-                            <input type="submit" value="Cadastrar" class="btn btn-light" id="btnCadastrar">
-                        </form>
-                    </div>
+                        </div>
+                        <input type="submit" value="Cadastrar" class="btn btn-light" id="btnCadastrar">
+                    </form>
                 </div>
-            </section>
-            <section class="row merch">
-                <div class="col-12 col-md-4 col-lg-4 col-sm-12">
-                    <div class="oque-fazemos">
-                        <h6 class="titulo">
-                            Lorem, ipsum dolor.
-                        </h6>
-                        <p class="texto">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ut quibusdam nobis sunt, voluptatibus 
-                            recusandae officia! Reiciendis, similique sit! Enim. Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                            Nesciunt ut quibusdam nobis sunt, voluptatibus recusandae officia! Reiciendis, similique sit! Enim.
-                        </p>
-                    </div>
+            </div>
+        </section>
+        <section class="row merch">
+            <div class="col-12 col-md-4 col-lg-4 col-sm-12">
+                <div class="oque-fazemos">
+                    <h6 class="titulo">
+                        Lorem, ipsum dolor.
+                    </h6>
+                    <p class="texto">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ut quibusdam nobis sunt,
+                        voluptatibus
+                        recusandae officia! Reiciendis, similique sit! Enim. Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit.
+                        Nesciunt ut quibusdam nobis sunt, voluptatibus recusandae officia! Reiciendis, similique sit!
+                        Enim.
+                    </p>
                 </div>
-                <div class="col-12 col-md-4 col-lg-4 col-sm-12">
-                    <div class="oque-fazemos">
-                        <h6 class="titulo">
-                            Lorem, ipsum dolor.
-                        </h6>
-                        <p class="texto">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ut quibusdam nobis sunt, voluptatibus 
-                            recusandae officia! Reiciendis, similique sit! Enim. Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                            Nesciunt ut quibusdam nobis sunt, voluptatibus recusandae officia! Reiciendis, similique sit! Enim.
-                        </p>
-                    </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-sm-12">
+                <div class="oque-fazemos">
+                    <h6 class="titulo">
+                        Lorem, ipsum dolor.
+                    </h6>
+                    <p class="texto">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ut quibusdam nobis sunt,
+                        voluptatibus
+                        recusandae officia! Reiciendis, similique sit! Enim. Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit.
+                        Nesciunt ut quibusdam nobis sunt, voluptatibus recusandae officia! Reiciendis, similique sit!
+                        Enim.
+                    </p>
                 </div>
-                <div class="col-12 col-md-4 col-lg-4 col-sm-12">
-                    <div class="oque-fazemos">
-                        <h6 class="titulo">
-                            O que fazemos?
-                        </h6>
-                        <p class="texto">
-                            Nós criamos um repositório virtual que permite a comunicação professor-aluno de forma especializada, em um 
-                            ambiente totalmente focado, sem distrações, com "ajudas" criadas por nós, mas que vocês possam ter autonomia 
-                            de criar o que quiserem.
-                        </p>
-                    </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-sm-12">
+                <div class="oque-fazemos">
+                    <h6 class="titulo">
+                        O que fazemos?
+                    </h6>
+                    <p class="texto">
+                        Nós criamos um repositório virtual que permite a comunicação professor-aluno de forma
+                        especializada, em um
+                        ambiente totalmente focado, sem distrações, com "ajudas" criadas por nós, mas que vocês possam
+                        ter autonomia
+                        de criar o que quiserem.
+                    </p>
                 </div>
-            </section>
+            </div>
+        </section>
     </main>
     <footer class="container footer">
 
@@ -146,4 +156,3 @@
         crossorigin="anonymous"></script>
     <script src="js/scriptsCadastroLogin.js"></script>
 </body>
-

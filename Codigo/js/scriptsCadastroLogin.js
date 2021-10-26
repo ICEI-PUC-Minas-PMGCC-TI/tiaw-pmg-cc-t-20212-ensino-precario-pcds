@@ -123,10 +123,29 @@ function loginUser(login, senha) {
 function pegarLoginSenha() {
     let login = document.getElementById('emailLogin').value;
     let senha = document.getElementById('senhaLogin').value;
-    let estado = loginUser(login, senha);
-    if (estado) {
+    let  estado = loginUser(login,senha);
+    if(estado)
+    {
         window.location.href = "conteudo.html";
-    } else {
-        alert('Algo deu errado!');
+    }
+    else
+    {
+         document.getElementById('email').value ="";
+         document.getElementById('senhaLogin').value ="";
+         Aviso('Seu login ou sua senha estão errados!');
     }
 }
+
+function Aviso(mensaguem)
+{
+    let tela = document.getElementById('erro');
+    tela.innerHTML = `<p>${mensaguem}</p>` ;
+
+}
+
+function pararerro()
+{
+    let tela = document.getElementById('erro');
+    tela.innerHTML = "" ;
+}
+
