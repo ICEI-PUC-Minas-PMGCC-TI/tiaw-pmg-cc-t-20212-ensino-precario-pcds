@@ -7,25 +7,9 @@ function gerarID() {
     // exemplo de ID gerado: _a7ny9bdqz
     return '_' + Math.random().toString(36).substr(2, 9);
 }
-function leDados() {
-    let strDados = localStorage.getItem('db');
-    let objDados = {};
 
-    if (strDados) {
-        objDados = JSON.parse(strDados);
-    }
-    else {
-        objDados = {
-            usuarios: [
-                { usuario_id: gerarID(), nome: "João da Silva", email: "joaosilva672@hotmail.com", senha: "123456789", professor: true },
-                { usuario_id: gerarID(), nome: "Maria das Graças", email: "gracasmaria@gmail.com", senha: "123456789", professor: true },
-                { usuario_id: gerarID(), nome: "Pedro Gomes", email: "pedro.gomes@gmail.com", senha: "123456789", professor: true }
-            ]
-        }
-    }
 
-    return objDados;
-}
+
 function validaEmail(field) {
     let objDados = leDados();
     let usuario = field.value.substr(0, field.value.indexOf("@")); // o que é escrito ANTES DO "@"
@@ -56,6 +40,11 @@ function validaEmail(field) {
 function salvaDados(dados) {
     localStorage.setItem('db', JSON.stringify(dados));
 }
+ 
+
+
+
+
 
 function novoUsuario() {
     // Ler os dados do localStorage
