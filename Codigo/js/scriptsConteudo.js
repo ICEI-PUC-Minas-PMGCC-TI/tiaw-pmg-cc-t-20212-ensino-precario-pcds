@@ -108,15 +108,15 @@ function mostrarConteudoTela(){
             break;
 
             case '1':
-            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2>${materiais.material[index].titulo}</h2></div>
-            <div class="caixa border border-dark my-3 mx-3"><img src="${materiais.material[index].url}"></div>
+            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+            <div class="caixa border border-dark my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div>
             <div class="d-flex justify-content-center"><button class="mx-3 my-3" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
             break;
 
             case '2':
                 let name ='https://www.youtube.com/embed/';
                 name+=materiais.material[index].url;
-            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2>${materiais.material[index].titulo}</h2></div>
+            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <iframe width="727" height="409" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
             break;
@@ -140,6 +140,19 @@ window.onload = function () {
     }else{
         adicionarMaterialDropdown();
     }
+    if(!(localStorage.getItem("db")===null)){
+        let parser = localStorage.getItem("db");
+        let objDados =JSON.parse(parser);
+        let parser2 = localStorage.getItem("usuarioAtual");
+        let indexUsuario = JSON.parse(parser2);
+        if(objDados.usuarios[indexUsuario].professor){
+            document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);
+            
+        }else{
+            document.getElementById('professorApenas').innerHTML ='';
+        }
+    }else{
+        document.getElementById('professorApenas').innerHTML ='';
+    }
 }
-document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);
 document.getElementById("btnConteudoMostrar").addEventListener("click", mostrarConteudoTela);

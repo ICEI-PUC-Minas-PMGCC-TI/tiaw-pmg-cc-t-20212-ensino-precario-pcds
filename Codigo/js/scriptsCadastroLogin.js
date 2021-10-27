@@ -144,7 +144,21 @@ function loginUser(login, senha) {
     // Se chegou até aqui é por que não encontrou o usuário e retorna falso
     return false;
 }
+function achaUsuario(login,senha){
+    let objDados = leDados();
+     // Verifica todos os itens do banco de dados de usuarios
+     // para localizar o usuário informado no formulario de login
+     for (var i = 0; i < objDados.usuarios.length; i++) {
+        var usuario = objDados.usuarios[i];
 
+        // Se encontrou login, carrega usuário corrente e salva no Session Storage
+        if (login == usuario.email && senha == usuario.senha) {
+
+            // Retorna true para usuário encontrado
+            return i;
+        }
+    }
+}
 
 function pegarLoginSenha() {
     let login = document.getElementById('emailLogin').value;
@@ -152,6 +166,8 @@ function pegarLoginSenha() {
     let  estado = loginUser(login,senha);
     if(estado)
     {
+        let index = achaUsuario(login,senha);//Já foi garantindo que o usuário existe
+        localStorage.setItem("usuarioAtual",index);
         window.location.href = "conteudo.html";
     }
     else
