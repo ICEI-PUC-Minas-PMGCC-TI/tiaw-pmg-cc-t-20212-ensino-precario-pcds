@@ -3,6 +3,8 @@ function gerarID() {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
     // after the decimal.
+    // A função de gerarID pode ser usada para todas as coisas que podem ser cadastradas pelo usuario.
+    // exemplo de ID gerado: _a7ny9bdqz
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 function leDados() {

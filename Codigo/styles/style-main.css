@@ -47,7 +47,7 @@ html{
     width: 150px;
 }
 .sidebar ul:first-child{
-    padding-top: 40%;
+    padding-top: 30%;
 }
 .sidebar nav ul li a{
     display: flex;
@@ -77,6 +77,7 @@ html{
 }
 .conteudo{
     width: 76%;
+    min-height: 600px;
 }
 .main section{
     position: relative;
@@ -84,6 +85,21 @@ html{
 }
 
 /*   ROW MAIN FIM   */
+
+/*  ROW FOOTER INICIO*/
+
+.footer {
+    position: inherit;
+    margin: 0;
+    background: #dc3545;
+    width: 100%;
+    z-index: 2;
+
+}
+.footer p{
+    color: #fff;
+}
+/*  ROW FOOTER FIM*/
 
 /*     TAGS MAIN FIM     */
 
