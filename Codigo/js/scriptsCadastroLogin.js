@@ -112,9 +112,10 @@ nomeCadastro.oninput = function () {
 
 document.getElementById('btnCadastrar').addEventListener('click', novoUsuario);
 
-
-
-
+window.onload = function(){
+    let objDados=leDados();
+    salvaDados(objDados);
+}
 
 
 // scriptslogin

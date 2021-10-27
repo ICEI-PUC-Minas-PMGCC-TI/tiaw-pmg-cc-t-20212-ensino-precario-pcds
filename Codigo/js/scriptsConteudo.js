@@ -98,27 +98,40 @@ function mostrarConteudoTela(){
     let parser = localStorage.getItem("materialTodo");
     let index = dropDown.selectedIndex;
     let materiais = JSON.parse(parser);
+    let parser2 = localStorage.getItem("usuarioAtual");
+    let indexUsuario = JSON.parse(parser2);
+    let parser3 = localStorage.getItem("db");
+    let objDados =JSON.parse(parser3);
     if(opcao != "3"){
         switch(opcao)
         {
             case '0':
-            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
-            <div class="caixa border border-dark my-3 mx-3"><p class="text-center">${materiais.material[index].url}</p></div>
-            <div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+            let textoHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+            <div class="caixa border border-dark my-3 mx-3"><p class="text-center">${materiais.material[index].url}</p></div>`;
+            if(objDados.usuarios[indexUsuario].professor){
+            textoHTML +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+            }
+            conteudoTela.innerHTML=textoHTML;
             break;
 
             case '1':
-            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
-            <div class="caixa border border-dark my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div>
-            <div class="d-flex justify-content-center"><button class="mx-3 my-3" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+                let textoHTML2=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+            <div class="caixa border border-dark my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div>`
+            if(objDados.usuarios[indexUsuario].professor){
+                textoHTML2 +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+            }
+            conteudoTela.innerHTML=textoHTML2;
             break;
 
             case '2':
                 let name ='https://www.youtube.com/embed/';
                 name+=materiais.material[index].url;
-            conteudoTela.innerHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
-            <iframe width="727" height="409" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+                let textoHTML3=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+            <iframe width="727" height="409" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+            if(objDados.usuarios[indexUsuario].professor){
+                textoHTML3 +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+        }
+            conteudoTela.innerHTML=textoHTML3;
             break;
         }
     }
