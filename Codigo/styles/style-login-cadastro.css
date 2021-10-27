@@ -130,5 +130,20 @@ html{
 }
 /*   ROW MAIN FIM   */
 
+/*  ROW FOOTER INICIO*/
+
+.footer {
+    position: inherit;
+    margin: 0;
+    background: #dc3545;
+    width: 100%;
+    z-index: 2;
+
+}
+.footer p{
+    color: #fff;
+}
+/*  ROW FOOTER FIM*/
+
 /*     TAGS MAIN FIM     */
 
