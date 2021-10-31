@@ -98,17 +98,17 @@ function mostrarConteudoTela(){
     let parser = localStorage.getItem("materialTodo");
     let index = dropDown.selectedIndex;
     let materiais = JSON.parse(parser);
-    let parser2 = localStorage.getItem("usuarioAtual");
-    let indexUsuario = JSON.parse(parser2);
+    let IDUsuario = localStorage.getItem("usuarioAtual");
     let parser3 = localStorage.getItem("db");
     let objDados =JSON.parse(parser3);
+    let usuarioPermissao = achaUsuarioAtual(IDUsuario,objDados);
     if(opcao != "3"){
         switch(opcao)
         {
             case '0':
             let textoHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <div class="caixa border border-dark my-3 mx-3"><p class="text-center">${materiais.material[index].url}</p></div>`;
-            if(objDados.usuarios[indexUsuario].professor){
+            if(usuarioPermissao){
             textoHTML +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
             }
             conteudoTela.innerHTML=textoHTML;
@@ -117,7 +117,7 @@ function mostrarConteudoTela(){
             case '1':
                 let textoHTML2=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <div class="caixa border border-dark my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div>`
-            if(objDados.usuarios[indexUsuario].professor){
+            if(usuarioPermissao){
                 textoHTML2 +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
             }
             conteudoTela.innerHTML=textoHTML2;
@@ -128,7 +128,7 @@ function mostrarConteudoTela(){
                 name+=materiais.material[index].url;
                 let textoHTML3=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <iframe width="727" height="409" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-            if(objDados.usuarios[indexUsuario].professor){
+            if(usuarioPermissao){
                 textoHTML3 +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
         }
             conteudoTela.innerHTML=textoHTML3;
