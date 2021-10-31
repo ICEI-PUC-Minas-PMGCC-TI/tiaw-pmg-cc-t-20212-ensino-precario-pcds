@@ -145,6 +145,15 @@ function retirarConteudo(index){
     localStorage.setItem('materialTodo', JSON.stringify(materiais));
     adicionarMaterialDropdown();
 }
+function achaUsuarioAtual(Id,usuariodb){
+    for(i=0;i<usuariodb.usuarios.length;i++){
+        let usuario = usuariodb.usuarios[i];
+        if(usuario.usuario_id==Id){
+            return usuario.professor;
+        }
+    }
+    return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
+}
 window.onload = function () {
     if (localStorage.getItem("primeiraVezDb") === null) {
         let conteudoDb = {material: [{disciplina: 'teste' ,url: 'teste' , titulo: 'teste',textoImagemVideo:'3' }]} 
@@ -156,9 +165,9 @@ window.onload = function () {
     if(!(localStorage.getItem("db")===null)){
         let parser = localStorage.getItem("db");
         let objDados =JSON.parse(parser);
-        let parser2 = localStorage.getItem("usuarioAtual");
-        let indexUsuario = JSON.parse(parser2);
-        if(objDados.usuarios[indexUsuario].professor){
+        let IDUsuario = localStorage.getItem("usuarioAtual");
+        let usuarioPermissao = achaUsuarioAtual(IDUsuario,objDados); 
+        if(usuarioPermissao){
             document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);
             
         }else{
