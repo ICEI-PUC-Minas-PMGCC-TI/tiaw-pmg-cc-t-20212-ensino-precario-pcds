@@ -75,7 +75,7 @@ function adicionarMaterialDropdown() {
         let text = document.createTextNode(materiais.material[i].titulo);
         option.appendChild(text);
         dropdown.appendChild(option);
-        option.setAttribute('value',materiais.material[i].textoImagemVideo)
+        option.setAttribute('value',materiais.material[i].textoImagemVideo);
     }
 }
 function adicionarMaterialDb(disciplinaAdd,urlTextoAdd,tituloAdd,tipo){
@@ -154,6 +154,7 @@ function achaUsuarioAtual(Id,usuariodb){
     }
     return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
 }
+
 window.onload = function () {
     if (localStorage.getItem("primeiraVezDb") === null) {
         let conteudoDb = {material: [{disciplina: 'teste' ,url: 'teste' , titulo: 'teste',textoImagemVideo:'3' }]} 
@@ -166,10 +167,10 @@ window.onload = function () {
         let parser = localStorage.getItem("db");
         let objDados =JSON.parse(parser);
         let IDUsuario = localStorage.getItem("usuarioAtual");
-        let usuarioPermissao = achaUsuarioAtual(IDUsuario,objDados); 
+        let usuarioPermissao = achaUsuarioAtual(IDUsuario,objDados);
+        document.getElementById("sidebarDireita").removeAttribute("hidden");
         if(usuarioPermissao){
             document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);
-            
         }else{
             document.getElementById('professorApenas').innerHTML ='';
         }
