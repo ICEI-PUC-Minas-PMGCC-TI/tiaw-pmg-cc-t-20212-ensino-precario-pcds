@@ -84,6 +84,24 @@ html{
     left: 24%;
 }
 
+.center{
+    margin: 0 auto;
+    text-align: center;
+}
+.center div{
+    padding: 4px;
+    
+}
+#btnApagarVisualizacaoAtividade{
+    margin: 0 auto;
+    text-align: center;
+}
+.opcao{
+    width: 70%;
+}
+.spanResposta{
+    font-weight: bolder;
+}
 /*   ROW MAIN FIM   */
 
 /*  ROW FOOTER INICIO*/
@@ -99,6 +117,14 @@ html{
 .footer p{
     color: #fff;
 }
+.input{
+    margin: 0 auto;
+    max-width: 80%;
+}
+label{
+    font-weight: bolder;
+}
+
 /*  ROW FOOTER FIM*/
 
 /*     TAGS MAIN FIM     */
