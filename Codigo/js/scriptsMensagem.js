@@ -54,7 +54,8 @@ function criarMensagem(titulo,corpo,IDDestinatario){
     let novaMensagem = 
         { de: IDUsuario, para: IDDestinatario, titulo: titulo, mensagem: corpo }
     
-        dbMens
+        dbMensagens.mensagens.push(novaMensagem);
+        salvaDBMensagen(dbMensagens);
 }
 function criardbMensagem(){
     let parser = localStorage.getItem("db");
@@ -72,7 +73,7 @@ function criardbMensagem(){
     salvaDBMensagen(Mensagens);
 }
 function salvaDBMensagen(DB){
-    localStorage.setItem("dbMensagens",JSON.stringify(Mensagens));
+    localStorage.setItem("dbMensagens",JSON.stringify(DB));
 }
 window.onload = function () {
     if (!(localStorage.getItem("db") === null)) {
