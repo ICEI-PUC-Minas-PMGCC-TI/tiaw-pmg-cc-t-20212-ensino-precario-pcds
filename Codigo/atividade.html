@@ -17,7 +17,6 @@
     <nav class="navbar">
       <span class="logo">FOCUS</span> <!-- Clicar aqui irá para a Home. Deixar as opções de menu no aside-->
       <div class="text_logout">
-        <input type="text" placeholder=" Pesquisar">
         <a href="index.html"><i class="fas fa-sign-out-alt"></i></a>
         <!--Logout icon. Ainda vou alinhar -->
       </div>
@@ -28,12 +27,14 @@
     <div class="row main">
       <section class="main conteudo">
         <div class="col-12 col-md-12 col-lg-12 col-sm-12">
-          <h1>Atividades</h1>
+          <h1 class="subtitulo tela center">Atividades</h1>
+          <div class="center">
           <button id="btnCriarAtividade" class="btn btn-secondary">Criar atividade</button>
           <select name="selectAtividade" id="qualAtividade" class="btn btn-light dropdown-toggle">
             <option value="3" hidden selected disabled>Selecione o conteúdo a ver:</option>
           </select>
           <button id="btnVisualizarAtividade" class="btn btn-secondary">Visualizar atividade</button>
+          </div>
         </div>
         <div id="aparecerCriarAtividadeDiv" class="center">
           <!--  Aqui aparece o formulario de criação de nova atividade  -->
@@ -41,10 +42,10 @@
         <div id="aparecerAtividadeDiv" class="center">
           <!--  Aqui aparece a atividade selecionada  -->
         </div>
-        <center>
+        <div class="center">
           <button id="btnApagarVisualizacaoAtividade" class="btn btn-warning center">Apagar</button>
           <button id="btnApagarCriarAtividade" class="btn btn-warning center">Apagar</button>
-        </center>
+        </div>
       </section>
       <aside class="sidebar">
         <nav class="col-12 col-md-2 col-lg-2 col-sm-1 sidebar">
@@ -63,12 +64,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="atividade.html"><i class="fas fa-pencil-alt"></i>Atividades</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="video.html"><i class="fas fa-video"></i>Vídeos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="motivacao.html"><i class="fas fa-book-reader"></i></i>Motivação</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="mensagem.html"><i class="fas fa-envelope"></i>Mensagens</a>

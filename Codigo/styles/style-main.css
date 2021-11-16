@@ -4,6 +4,14 @@ html{
     margin: 0;
     padding: 0;
 }
+.logo{
+    font-family: cursive;
+    font-size: 1.8em;
+    padding-left: 15px;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 /*     TAGS GERAIS FIM     */
 
 /*     TAGS HEADER INICIO     */
@@ -92,16 +100,45 @@ html{
     padding: 4px;
     
 }
-#btnApagarVisualizacaoAtividade{
-    margin: 0 auto;
-    text-align: center;
-}
 .opcao{
-    width: 70%;
+    width: 90%;
 }
-.spanResposta{
+.negrito{
     font-weight: bolder;
 }
+.titulo{
+    font-weight: 700;
+    font-size: 2.3em;
+}
+.subtitulo{
+    font-size: 1.7em;
+    font-weight: 400;
+
+}
+.tela{
+    margin: 10px 0;
+}
+.enunciado{
+    font-size: 1.1em;
+    font-weight: 100;
+}
+.justify{
+    text-align: justify;
+}
+.enunciado{
+    font-size: 1.1em;
+}
+.divQuestao{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#btnApagarCriarAtividade{
+    margin: 10px;
+}
+#btnApagarVisualizacaoAtividade{
+    margin: 10px;
+}
+
 /*   ROW MAIN FIM   */
 
 /*  ROW FOOTER INICIO*/
