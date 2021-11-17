@@ -10,7 +10,7 @@ function achaUsuarioAtual(Id, usuariodb) {
 function achaNomePorId(ID, DB) {
     let resposta = "erro";
     for (i = 0; i < DB.usuarios.length; i++) {
-        let usuario = usuariodb.usuarios[i];
+        let usuario = DB.usuarios[i];
         if (usuario.usuario_id == ID) {
             resposta = usuario.nome;
             return resposta;
@@ -18,15 +18,40 @@ function achaNomePorId(ID, DB) {
     }
     return resposta;
 }
+function achaTituloPorIDs(IDMsg, DBMensagem) {
+    let resposta = "erro";
+    for (i = 1; i <= DBMensagem.mensagens.length; i++) {
+        let mensagem = DBMensagem.mensagens[i];
+        if (i == IDMsg) {
+            resposta = mensagem.titulo;
+            return resposta;
+        }
+    }
+    return resposta;
+}
+function achaTextoPorIDs(IDMsg, DBMensagem) {
+    let resposta = "erro";
+    for (i = 1; i <= DBMensagem.mensagens.length; i++) {
+        let msg = DBMensagem.mensagens[i];
+        if (i == IDMsg) {
+            resposta = msg.mensagem;
+            return resposta;
+        }
+    }
+    return resposta;
+}
 function adicionaUsuariosDropdown(objDados) {
     let dropdown = document.getElementById("usuariosDrop");
+    let IDAtual = localStorage.getItem("usuarioAtual")
     dropdown.innerHTML = '<option selected disabled value = 0>Selecione para quem a mensagem é:</option>';
     for (i = 0; i < objDados.usuarios.length; i++) {
-        let option = document.createElement('option');
-        let text = document.createTextNode(objDados.usuarios[i].nome);
-        option.appendChild(text);
-        dropdown.appendChild(option);
-        option.setAttribute('value', objDados.usuarios.usuario_id);
+        if (IDAtual != objDados.usuarios[i].usuario_id) {
+            let option = document.createElement('option');
+            let text = document.createTextNode(objDados.usuarios[i].nome);
+            option.appendChild(text);
+            dropdown.appendChild(option);
+            option.setAttribute('value',objDados.usuarios[i].usuario_id );
+        }
     }
 }
 function validarMensagem() {
@@ -39,7 +64,10 @@ function validarMensagem() {
         alert('Pelo menos um dos valores não foi preenchido!');
     } else {
         let pessoaID = drop.options[drop.selectedIndex].value;
-        criarMensagem(titulo, corpo, pessoaID);
+        let tituloValor = titulo.value;
+        let corpoValor = corpo.value;
+        console.log(corpoValor);
+        criarMensagem(tituloValor, corpoValor, pessoaID);
         titulo.value = '';
         corpo.value = '';
     }
@@ -84,10 +112,42 @@ function dropdownMensagens(DBUsuarios, IDAtual) {
             temMensagem = true;
         }
     }
-    if(temMensagem){
+    if (temMensagem) {
         let desaparecer = document.getElementById("desaparecerDepois");
-        desaparecer.setAttribute('hidden',true);
+        desaparecer.setAttribute('hidden', true);
+        let aparecer = document.getElementById("aparecerDepois");
+        aparecer.removeAttribute("hidden");
+        let aparecerMsg = document.getElementById("aparecerDepoisMensagem");
+        aparecerMsg.removeAttribute("hidden");
+        aparecerDropdownMensagem(DBUsuarios, IDAtual, dbMensagens);
     }
+}
+function aparecerDropdownMensagem(DBUsuarios, IDAtual, dbMensagens) {
+    let dropdown = document.createElement("select");
+    dropdown.innerHTML = '<option selected disabled value = 0>Selecione a mensagem à ver:</option>';
+    for (i = 0; i < dbMensagens.mensagens.length; i++) {
+        if (IDAtual == dbMensagens.mensagens[i].para) {
+            let option = document.createElement('option');
+            let text = document.createTextNode(dbMensagens.mensagens[i].titulo);
+            option.appendChild(text);
+            dropdown.appendChild(option);
+            option.setAttribute('value', dbMensagens.mensagens[i].de);
+        }
+    }
+    dropdown.addEventListener('change', function () { mostrarMensagem(dropdown, DBUsuarios, IDAtual, dbMensagens) });
+    let divAparecer = document.getElementById("aparecerDepois");
+    divAparecer.appendChild(dropdown);
+
+}
+function mostrarMensagem(dropdown, DBUsuarios, IDAtual, dbMensagens) {
+    let indexMsg = dropdown.selectedIndex;
+    let idDe = dropdown.options[indexMsg].value;
+    let mensagens = document.getElementById("aparecerDepoisMensagem");
+    mensagens.innerHTML = `
+    <h2 class="text-center border border-dark caixinha my-2">Mensagem de: ${achaNomePorId(idDe, DBUsuarios)}</h2>
+    <h1 class="text-center border border-dark caixinha my-2">${achaTituloPorIDs(indexMsg, dbMensagens)}</h1>
+    <p class="text-center border border-dark caixinha my-3">${achaTextoPorIDs(indexMsg, dbMensagens)}</p>
+ `
 }
 window.onload = function () {
     if (!(localStorage.getItem("db") === null)) {
@@ -102,11 +162,12 @@ window.onload = function () {
 
         } else {
             adicionaUsuariosDropdown(objDados);
-            dropdownMensagens(objDados, IDUsuario);
+
             let dbMensagens = localStorage.getItem("dbMensagens");
             if (!dbMensagens) {
                 criardbMensagem(IDUsuario);
             }
+            dropdownMensagens(objDados, IDUsuario);
         }
     } else {
         alert("É necessário logar antes!");
