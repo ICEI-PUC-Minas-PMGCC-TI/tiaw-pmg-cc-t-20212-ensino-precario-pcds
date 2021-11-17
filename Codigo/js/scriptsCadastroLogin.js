@@ -163,9 +163,9 @@ function achaUsuario(login,senha){
 
         // Se encontrou login, carrega usuário corrente e salva no Session Storage
         if (login == usuario.email && senha == usuario.senha) {
-
+            let indexID = usuario.usuario_id;
             // Retorna true para usuário encontrado
-            return i;
+            return indexID;
         }
     }
 }
@@ -176,8 +176,8 @@ function pegarLoginSenha() {
     let  estado = loginUser(login,senha);
     if(estado)
     {
-        let index = achaUsuario(login,senha);//Já foi garantindo que o usuário existe
-        localStorage.setItem("usuarioAtual",index);
+        let indexID = achaUsuario(login,senha);//Já foi garantindo que o usuário existe
+        localStorage.setItem("usuarioAtual",indexID);
         window.location.href = "conteudo.html";
     }
     else

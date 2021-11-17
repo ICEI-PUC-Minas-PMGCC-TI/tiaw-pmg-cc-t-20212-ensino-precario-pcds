@@ -9,7 +9,7 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/37e4898af2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/style-main.css">
-
+  <link rel="stylesheet" href="styles/style-mensagem.css">
 </head>
 
 <body>
@@ -27,11 +27,32 @@
   <main class="container">
     <div class="row main">
       <section class="main conteudo">
-        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
-            <h1>Aqui fica a tela de mensagens</h1>
-            <h3>
-                Com todas as mensagens recebidas pelo usuárioCom todas as mensagens recebidas pelo usuárioCom todas as mensagens recebidas pelo usuárioCom todas as mensagens recebidas pelo usuárioCom todas as mensagens recebidas pelo usuárioCom todas as mensagens recebidas pelo usuárioCom todas as mensagens recebidas pelo usuário
-            </h3>
+        <div class="col-12 col-md-12 col-lg-12 col-sm-12 ml-2 justify-content-between">
+          <div id="desaparecerDepois">
+            <h1 class="text-center border border-dark caixinha my-2">Aqui ficarão suas mensagens,</h1>
+            <p class="text-center border border-dark caixinha my-3">quando você receber uma!</p>
+          </div>
+          <div id="aparecerDepois" hidden>
+            <!--Aqui ficará o dropdown das mensagens-->
+          </div>
+          <div id="aparecerDepoisMensagem" hidden>
+            <!--Aqui ficaram as mensagens pro usuario-->
+          </div>
+          <div class="caixinha border border-dark input-group my-3">
+            <select id="usuariosDrop">
+
+            </select>
+          </div>
+          <div class="caixinha border border-dark input-group my-3"><label for="tituloMensagem">Título para sua
+              mensagem:</label>
+            <input type="text" id="tituloMensagem" name="tituloTexto">
+          </div>
+          <div class="caixinha border border-dark input-group my-3"><label class="d-block" for="corpoMensagem">Coloque
+              abaixo sua mensagem:</label>
+            <textarea type="text" id="corpoMensagem" class="d-block" rows="20" cols="45"
+              classname="corpoTexto"></textarea>
+            <button onclick="validarMensagem()">Ok</button>
+          </div>
         </div>
       </section>
       <aside class="sidebar">
@@ -72,7 +93,7 @@
         <p>Instituto de Ciências Exatas e Informática - PUC Minas - TIAW - Todos os direitos reservados 2021</p>
       </div>
     </div>
-    
+
   </footer>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -83,6 +104,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+  <script src="js/scriptsMensagem.js"></script>
 </body>
 
 </html>
