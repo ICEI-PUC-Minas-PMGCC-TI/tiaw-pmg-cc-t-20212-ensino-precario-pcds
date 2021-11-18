@@ -22,4 +22,6 @@
     background:white;
     position: relative;
     z-index:3;
+    width: 12vw;
+    height: 7vh;
 }

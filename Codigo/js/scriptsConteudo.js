@@ -143,8 +143,7 @@ function mostrarConteudoTela(){
             conteudoTela.innerHTML=textoHTML3;
             break;
         }
-        conteudoTela.innerHTML = textoHTML3;
-        break;
+
     }
   }
 
@@ -166,7 +165,26 @@ function achaUsuarioAtual(Id,usuariodb){
     }
     return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
 }
-
+function colocaMsgAntigaSidebarDireita(){
+  let DBUsuarios = JSON.parse(localStorage.getItem("db"));
+  let DBMsg = JSON.parse(localStorage.getItem("dbMensagens"));
+  let UsuarioAtual = localStorage.getItem("usuarioAtual");
+  let conteudoItem = document.getElementById("mensagemAntiga");
+  let conteudoTitulo = document.getElementById("msgAntigaTitulo");
+  let temMsg = false;
+  for(i=0;i<DBMsg.mensagens.length;i++){
+    let msg = DBMsg.mensagens[i];
+    if(msg.para==UsuarioAtual && !temMsg){
+      conteudoTitulo.innerText = "Mensagem mais antiga:";
+      conteudoItem.innerText = msg.titulo;
+      temMsg = true;
+    }
+  }
+  if(!temMsg){
+    conteudoTitulo.innerText = "Sem mensagens novas";
+    conteudoItem.setAttribute("hidden",true);
+  }
+}
 window.onload = function () {
   if (localStorage.getItem("primeiraVezDb") === null) {
     let conteudoDb = { material: [{ disciplina: 'teste', url: 'teste', titulo: 'teste', textoImagemVideo: '3' }] }
@@ -179,9 +197,11 @@ window.onload = function () {
   if (!(localStorage.getItem("db") === null)) {
     let parser = localStorage.getItem("db");
     let objDados = JSON.parse(parser);
-    let parser2 = localStorage.getItem("usuarioAtual");
-    let indexUsuario = JSON.parse(parser2);
-    if (objDados.usuarios[indexUsuario].professor) {
+    let idUsuario = localStorage.getItem("usuarioAtual");
+    let eProfessor = achaUsuarioAtual(idUsuario,objDados);
+    document.getElementById("sidebarDireita").removeAttribute("hidden");
+    colocaMsgAntigaSidebarDireita();
+    if (eProfessor) {
       document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);
 
     } else {
