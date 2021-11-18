@@ -165,7 +165,6 @@ function achaUsuarioAtual(Id, usuariodb) {
   return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
 }
 function colocaMsgAntigaSidebarDireita() {
-  let DBUsuarios = JSON.parse(localStorage.getItem("db"));
   let DBMsg = JSON.parse(localStorage.getItem("dbMensagens"));
   let UsuarioAtual = localStorage.getItem("usuarioAtual");
   let conteudoItem = document.getElementById("mensagemAntiga");
