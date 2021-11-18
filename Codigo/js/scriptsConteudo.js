@@ -178,7 +178,6 @@ window.onload = function () {
   }
   if (localStorage.getItem("primeiraVezDb") == true) {
 
-
   }
 }
 document.getElementById("btnConteudoMostrar").addEventListener("click", mostrarConteudoTela);
