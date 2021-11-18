@@ -227,10 +227,20 @@ function getRandomInt(min, max) { // intervalo fechado para o minimo e aberto pa
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
+function achaUsuarioAtual(Id,usuariodb){
+  for(i=0;i<usuariodb.usuarios.length;i++){
+      let usuario = usuariodb.usuarios[i];
+      if(usuario.usuario_id==Id){
+          return usuario.professor;
+      }
+  }
+  return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
+}
 window.onload = function () {
   let botaoApagarVisualizacao = document.getElementById('btnApagarVisualizacaoAtividade');
   let botaoApagarCriar = document.getElementById('btnApagarCriarAtividade');
   botaoApagarCriar.style.display = "none";
+  
 
   if (localStorage.getItem("atividadesTodas")) {
     console.log("OK");  
@@ -310,10 +320,10 @@ window.onload = function () {
 
   if (!(localStorage.getItem("db") === null)) {
     let parser = localStorage.getItem("db");
-    let objDados = JSON.parse(parser);
-    let parser2 = localStorage.getItem("usuarioAtual");
-    let indexUsuario = JSON.parse(parser2);
-    if (objDados.usuarios[indexUsuario].professor) {
+  let objDados = JSON.parse(parser);
+  let idUsuario = localStorage.getItem("usuarioAtual");
+  let eProfessor = achaUsuarioAtual(idUsuario,objDados);
+    if (eProfessor) {
       document.getElementById("btnCriarAtividade").addEventListener("click", aparecerCriarAtividade);
 
     } else {
