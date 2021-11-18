@@ -30,6 +30,7 @@ function adicionarAtividadeDb() {
 
     var parser = localStorage.getItem("atividadesTodas");
     var atividadeAntiga = JSON.parse(parser);
+    
   }
 
   let disciplinaAdd = document.getElementById('disciplinaQuestao');
@@ -173,18 +174,52 @@ function aparecerCriarAtividade() {
     </div>
 
 `;
+  
   let botaoApagar = document.getElementById("btnApagarCriarAtividade");
   botaoApagar.style.display = "inline";
-  btnPostarAtividade.onclick = function () {
-    if (disciplinaQuestao.value.length == 0 || materiaQuestao.value.length == 0 || enunciadoQuestao.value.length == 0 ||
-      respostaOpcaoInputA.value.length == 0 || respostaOpcaoInputB.value.length == 0 || respostaOpcaoInputC.value.length == 0 ||
-      respostaOpcaoInputD.value.length == 0) {
-      alert("Pelo menos um dos campos estão em branco.");
-    } else {
-      document.getElementById("btnPostarAtividade").addEventListener("click", adicionarAtividadeDb);
+
+  btnPostarAtividade.onclick = function testarValidaAtividade(){
+  let opcaoA = document.getElementById('respostaOpcaoA').checked;
+  let opcaoB = document.getElementById('respostaOpcaoB').checked;
+  let opcaoC = document.getElementById('respostaOpcaoC').checked;
+  let opcaoD = document.getElementById('respostaOpcaoD').checked; 
+  if (disciplinaQuestao.value.length == 0 || materiaQuestao.value.length == 0 || enunciadoQuestao.value.length == 0 ||
+    respostaOpcaoInputA.value.length == 0 || respostaOpcaoInputB.value.length == 0 || respostaOpcaoInputC.value.length == 0 ||
+    respostaOpcaoInputD.value.length == 0) {
+      
+    alert("Pelo menos um dos campos estão em branco.");
+  } else {
+    if(opcaoA || opcaoB || opcaoC || opcaoD){
+      adicionarAtividadeDb();
+    }else{
+      alert("É preciso marcar uma opção de resposta certa.");
     }
   }
+  }
+  
+  
 
+
+}
+function testarValidaAtividade(){
+  let opcaoA = document.getElementById('respostaOpcaoA').checked;
+  let opcaoB = document.getElementById('respostaOpcaoB').checked;
+  let opcaoC = document.getElementById('respostaOpcaoC').checked;
+  let opcaoD = document.getElementById('respostaOpcaoD').checked; 
+  if (disciplinaQuestao.value.length == 0 || materiaQuestao.value.length == 0 || enunciadoQuestao.value.length == 0 ||
+    respostaOpcaoInputA.value.length == 0 || respostaOpcaoInputB.value.length == 0 || respostaOpcaoInputC.value.length == 0 ||
+    respostaOpcaoInputD.value.length == 0) {
+      
+    alert("Pelo menos um dos campos estão em branco.");
+  } else {
+    if(opcaoA || opcaoB || opcaoC || opcaoD){
+      document.getElementById("btnPostarAtividade").addEventListener("click", adicionarAtividadeDb);
+    }else{
+      alert("É preciso marcar uma opção de resposta certa.");
+    }
+    
+  }
+  
 
 }
 function getRandomInt(min, max) { // intervalo fechado para o minimo e aberto para o maximo
@@ -192,11 +227,77 @@ function getRandomInt(min, max) { // intervalo fechado para o minimo e aberto pa
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
+function achaUsuarioAtual(Id,usuariodb){
+  for(i=0;i<usuariodb.usuarios.length;i++){
+      let usuario = usuariodb.usuarios[i];
+      if(usuario.usuario_id==Id){
+          return usuario.professor;
+      }
+  }
+  return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
+}
 window.onload = function () {
   let botaoApagarVisualizacao = document.getElementById('btnApagarVisualizacaoAtividade');
   let botaoApagarCriar = document.getElementById('btnApagarCriarAtividade');
   botaoApagarCriar.style.display = "none";
-  if (localStorage.getItem("primeiraVezDb")) {
+  
+
+  if (localStorage.getItem("atividadesTodas")) {
+    console.log("OK");  
+  } else {
+    var conteudoAtividadeInicial = {
+      atividade: [{
+        atividade_id: gerarID(),
+        disciplina: "Matemática",
+        materia: "Divisão",
+        titulo: "Introdução à divisão",
+        enunciado: "Quanto é 2/2?",
+        opcoes: {
+          resposta: "1",
+          opcao1: "4",
+          opcao2: "2",
+          opcao3: "3",
+        }
+      },
+    {
+      atividade_id: gerarID(),
+      disciplina: "Matemática",
+      materia: "Multiplicação",
+      titulo: "Introdução à multiplicação",
+      enunciado: "Quanto é 2x2?",
+      opcoes: {
+        resposta: "4",
+        opcao1: "22",
+        opcao2: "2",
+        opcao3: "0",
+      }
+    },
+    {
+      atividade_id: gerarID(),
+      disciplina: "Física",
+      materia: "Magnetismo",
+      titulo: "ENEM 2020 digital rosa - questão 111",
+      enunciado: `Os ventos solares são fenômenos caracterizados por feixes de partículas carregadas,
+      lançadas pelo Sol, no espaço, em alta velocidade. Somente uma pequena fração dessas
+      partículas atinge a atmosfera nos polos, provocando as auroras. A chegada dessas partículas
+      à superfície pode gerar efeitos indesejáveis, interferindo nas telecomunicações, no tráfego
+      aéreo e nas linhas de transmissão de energia elétrica.<br>
+      Esses efeitos são minimizados na Terra pela ação de seu(sua)`,
+      opcoes: {
+        resposta: "campo geomagnético.",
+        opcao1: "ionosfera.",
+        opcao2: "camada de ozônio.",
+        opcao3: "campo gravitacional.",
+      }
+    }]
+    }
+    localStorage.setItem("atividadesTodas", JSON.stringify(conteudoAtividadeInicial));
+
+    var parser = localStorage.getItem("atividadesTodas");
+    var atividadeAntiga = JSON.parse(parser);
+    
+  }
+  if (!localStorage.getItem("atividadesTodas")) {
     var conteudoDb = {
       atividade: [{
         atividade_id: gerarID(),
@@ -214,14 +315,15 @@ window.onload = function () {
     }
     localStorage.setItem("atividadesIniciais", JSON.stringify(conteudoDb));
     localStorage.setItem("primeiraVezDb", true);
+    adicionarAtividadeDropdown();
   }
 
   if (!(localStorage.getItem("db") === null)) {
     let parser = localStorage.getItem("db");
-    let objDados = JSON.parse(parser);
-    let parser2 = localStorage.getItem("usuarioAtual");
-    let indexUsuario = JSON.parse(parser2);
-    if (objDados.usuarios[indexUsuario].professor) {
+  let objDados = JSON.parse(parser);
+  let idUsuario = localStorage.getItem("usuarioAtual");
+  let eProfessor = achaUsuarioAtual(idUsuario,objDados);
+    if (eProfessor) {
       document.getElementById("btnCriarAtividade").addEventListener("click", aparecerCriarAtividade);
 
     } else {
@@ -230,14 +332,33 @@ window.onload = function () {
   } else {
     document.getElementById('btnCriarAtividade').style.display = 'none';
   }
-  adicionarAtividadeDropdown();
   botaoApagarVisualizacao.style.display = "none";
+  adicionarAtividadeDropdown();
+  
 }
 
 function adicionarAtividadeDropdown() {
+  var conteudoDb = {
+    atividade: [{
+      atividade_id: gerarID(),
+      disciplina: "Matemática",
+      materia: "Soma",
+      titulo: "Introdução à soma",
+      enunciado: "Quanto é 2 + 2?",
+      opcoes: {
+        resposta: "4",
+        opcao1: "1",
+        opcao2: "2",
+        opcao3: "3",
+      }
+    }]
+  }
+  localStorage.setItem("atividadesIniciais", JSON.stringify(conteudoDb));
   let dropdown = document.getElementById("qualAtividade");
   let parser1 = localStorage.getItem("atividadesIniciais");
-  let parser2 = localStorage.getItem("atividadesTodas");
+  if(localStorage.getItem("atividadesTodas")){
+    var parser2 = localStorage.getItem("atividadesTodas");
+  }
   let atividades1 = JSON.parse(parser1);
   let atividades2 = JSON.parse(parser2);
   var count = atividades1.atividade.length;
@@ -245,10 +366,10 @@ function adicionarAtividadeDropdown() {
   dropdown.innerHTML = '<option hidden disabled>Selecione o conteúdo a ver:</option>';
   for (i = 1; i < atividades1.atividade.length; i++) {
     let option = document.createElement('option');
-    let text = document.createTextNode(atividades1.atividade[i].titulo);
+    let text = document.createTextNode(atividades1.atividade[i -1].titulo);
     option.appendChild(text);
     dropdown.appendChild(option);
-    option.setAttribute('value', atividades1.atividade[i].disciplina);
+    option.setAttribute('value', atividades1.atividade[i - 1].disciplina);
 
   }
   for (i = count; i < atividades2.atividade.length + count; i++) {

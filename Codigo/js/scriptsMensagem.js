@@ -1,3 +1,11 @@
+function gerarID() {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+    // after the decimal.
+    // A função de gerarID pode ser usada para todas as coisas que podem ser cadastradas pelo usuario.
+    // exemplo de ID gerado: _a7ny9bdqz
+    return '_' + Math.random().toString(36).substr(2, 9);
+}
 function achaUsuarioAtual(Id, usuariodb) {
     for (i = 0; i < usuariodb.usuarios.length; i++) {
         let usuario = usuariodb.usuarios[i];
@@ -20,20 +28,24 @@ function achaNomePorId(ID, DB) {
 }
 function achaTituloPorIDs(IDMsg, DBMensagem) {
     let resposta = "erro";
-    for (i = 1; i <= DBMensagem.mensagens.length; i++) {
+
+    for (i = 0; i < DBMensagem.mensagens.length; i++) {
         let mensagem = DBMensagem.mensagens[i];
-        if (i == IDMsg) {
+        if (IDMsg == mensagem.id) {
+
+
             resposta = mensagem.titulo;
             return resposta;
+
         }
     }
     return resposta;
 }
 function achaTextoPorIDs(IDMsg, DBMensagem) {
     let resposta = "erro";
-    for (i = 1; i <= DBMensagem.mensagens.length; i++) {
+    for (i = 0; i < DBMensagem.mensagens.length; i++) {
         let msg = DBMensagem.mensagens[i];
-        if (i == IDMsg) {
+        if (IDMsg == msg.id) {
             resposta = msg.mensagem;
             return resposta;
         }
@@ -50,7 +62,7 @@ function adicionaUsuariosDropdown(objDados) {
             let text = document.createTextNode(objDados.usuarios[i].nome);
             option.appendChild(text);
             dropdown.appendChild(option);
-            option.setAttribute('value',objDados.usuarios[i].usuario_id );
+            option.setAttribute('value', objDados.usuarios[i].usuario_id);
         }
     }
 }
@@ -70,6 +82,7 @@ function validarMensagem() {
         criarMensagem(tituloValor, corpoValor, pessoaID);
         titulo.value = '';
         corpo.value = '';
+        alert("Mensagem enviada com sucesso!");
     }
 }
 function criarMensagem(titulo, corpo, IDDestinatario) {
@@ -80,7 +93,7 @@ function criarMensagem(titulo, corpo, IDDestinatario) {
         criardbMensagem(IDUsuario);
     }
     let novaMensagem =
-        { de: IDUsuario, para: IDDestinatario, titulo: titulo, mensagem: corpo }
+        { de: IDUsuario, para: IDDestinatario, titulo: titulo, mensagem: corpo, id: gerarID() }
 
     dbMensagens.mensagens.push(novaMensagem);
     salvaDBMensagen(dbMensagens);
@@ -93,9 +106,9 @@ function criardbMensagem() {
     let id2 = objDados.usuarios[2].usuario_id;
     let Mensagens = {
         mensagens: [
-            { de: id0, para: id1, titulo: "Mensagem Teste-1", mensagem: "Teste corpo da mensagem 1." },
-            { de: id1, para: id2, titulo: "Mensagem Teste-2", mensagem: "Teste corpo da mensagem 2." },
-            { de: id2, para: id0, titulo: "Mensagem Teste-3", mensagem: "Teste corpo da mensagem 3." }
+            { de: id0, para: id1, titulo: "Mensagem Teste-1", mensagem: "Teste corpo da mensagem 1.", id: gerarID() },
+            { de: id1, para: id2, titulo: "Mensagem Teste-2", mensagem: "Teste corpo da mensagem 2.", id: gerarID() },
+            { de: id2, para: id0, titulo: "Mensagem Teste-3", mensagem: "Teste corpo da mensagem 3.", id: gerarID() }
         ]
     }
     salvaDBMensagen(Mensagens);
@@ -131,23 +144,33 @@ function aparecerDropdownMensagem(DBUsuarios, IDAtual, dbMensagens) {
             let text = document.createTextNode(dbMensagens.mensagens[i].titulo);
             option.appendChild(text);
             dropdown.appendChild(option);
-            option.setAttribute('value', dbMensagens.mensagens[i].de);
+            option.setAttribute('value', dbMensagens.mensagens[i].id);
         }
     }
-    dropdown.addEventListener('change', function () { mostrarMensagem(dropdown, DBUsuarios, IDAtual, dbMensagens) });
+    dropdown.addEventListener('change', function () { mostrarMensagem(dropdown, DBUsuarios, dbMensagens) });
     let divAparecer = document.getElementById("aparecerDepois");
     divAparecer.appendChild(dropdown);
 
 }
-function mostrarMensagem(dropdown, DBUsuarios, IDAtual, dbMensagens) {
+function mostrarMensagem(dropdown, DBUsuarios, dbMensagens) {
     let indexMsg = dropdown.selectedIndex;
-    let idDe = dropdown.options[indexMsg].value;
+    let idMsg = dropdown.options[indexMsg].value;
+    let idDe = achaIDde(idMsg, dbMensagens);
     let mensagens = document.getElementById("aparecerDepoisMensagem");
     mensagens.innerHTML = `
     <h2 class="text-center border border-dark caixinha my-2">Mensagem de: ${achaNomePorId(idDe, DBUsuarios)}</h2>
-    <h1 class="text-center border border-dark caixinha my-2">${achaTituloPorIDs(indexMsg, dbMensagens)}</h1>
-    <p class="text-center border border-dark caixinha my-3">${achaTextoPorIDs(indexMsg, dbMensagens)}</p>
+    <h1 class="text-center border border-dark caixinha my-2">${achaTituloPorIDs(idMsg, dbMensagens)}</h1>
+    <p class="text-center border border-dark caixinha my-3">${achaTextoPorIDs(idMsg, dbMensagens)}</p>
  `
+}
+function achaIDde(idMsg, dbMensagens) {
+    for (i = 0; i < dbMensagens.mensagens.length; i++) {
+        let msg = dbMensagens.mensagens[i];
+        if (idMsg == msg.id) {
+            let idDe = msg.de;
+            return idDe;
+        }
+    }
 }
 window.onload = function () {
     if (!(localStorage.getItem("db") === null)) {

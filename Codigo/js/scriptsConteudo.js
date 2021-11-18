@@ -100,53 +100,51 @@ function adicionarMaterialDb(disciplinaAdd, urlTextoAdd, tituloAdd, tipo) {
   localStorage.setItem('materialTodo', JSON.stringify(materialAntigo));
   adicionarMaterialDropdown();
 }
-function mostrarConteudoTela(){
-    let dropDown = document.getElementById("conteudoVer");
-    let opcao = dropDown.options[dropDown.selectedIndex].value;
-    let conteudoTela =document.getElementById('conteudoPostado');
-    let parser = localStorage.getItem("materialTodo");
-    let index = dropDown.selectedIndex;
-    let materiais = JSON.parse(parser);
-    let IDUsuario = localStorage.getItem("usuarioAtual");
-    let parser3 = localStorage.getItem("db");
-    let objDados =JSON.parse(parser3);
-    let usuarioPermissao = achaUsuarioAtual(IDUsuario,objDados);
-    if(opcao != "3"){
-        switch(opcao)
-        {
-            case '0':
-            let textoHTML=`<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+function mostrarConteudoTela() {
+  let dropDown = document.getElementById("conteudoVer");
+  let opcao = dropDown.options[dropDown.selectedIndex].value;
+  let conteudoTela = document.getElementById('conteudoPostado');
+  let parser = localStorage.getItem("materialTodo");
+  let index = dropDown.selectedIndex;
+  let materiais = JSON.parse(parser);
+  let IDUsuario = localStorage.getItem("usuarioAtual");
+  let parser3 = localStorage.getItem("db");
+  let objDados = JSON.parse(parser3);
+  let usuarioPermissao = achaUsuarioAtual(IDUsuario, objDados);
+  if (opcao != "3") {
+    switch (opcao) {
+      case '0':
+        let textoHTML = `<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <div class="caixa border border-dark my-3 mx-3"><p class="text-center">${materiais.material[index].url}</p></div>`;
-            if(usuarioPermissao){
-            textoHTML +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
-            }
-            conteudoTela.innerHTML=textoHTML;
-            break;
+        if (usuarioPermissao) {
+          textoHTML += `<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+        }
+        conteudoTela.innerHTML = textoHTML;
+        break;
 
       case '1':
         let textoHTML2 = `<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <div class="caixa border border-dark my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div>`
-            if(usuarioPermissao){
-                textoHTML2 +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
-            }
-            conteudoTela.innerHTML=textoHTML2;
-            break;
+        if (usuarioPermissao) {
+          textoHTML2 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+        }
+        conteudoTela.innerHTML = textoHTML2;
+        break;
 
       case '2':
         let name = 'https://www.youtube.com/embed/';
         name += materiais.material[index].url;
         let textoHTML3 = `<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <iframe width="727" height="409" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-            if(usuarioPermissao){
-                textoHTML3 +=`<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
-        }
-            conteudoTela.innerHTML=textoHTML3;
-            break;
+        if (usuarioPermissao) {
+          textoHTML3 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
         }
         conteudoTela.innerHTML = textoHTML3;
         break;
     }
+
   }
+}
 
 function retirarConteudo(index) {
   let conteudoTela = document.getElementById('conteudoPostado');
@@ -157,16 +155,52 @@ function retirarConteudo(index) {
   localStorage.setItem('materialTodo', JSON.stringify(materiais));
   adicionarMaterialDropdown();
 }
-function achaUsuarioAtual(Id,usuariodb){
-    for(i=0;i<usuariodb.usuarios.length;i++){
-        let usuario = usuariodb.usuarios[i];
-        if(usuario.usuario_id==Id){
-            return usuario.professor;
-        }
+function achaUsuarioAtual(Id, usuariodb) {
+  for (i = 0; i < usuariodb.usuarios.length; i++) {
+    let usuario = usuariodb.usuarios[i];
+    if (usuario.usuario_id == Id) {
+      return usuario.professor;
     }
-    return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
+  }
+  return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
 }
-
+function colocaMsgAntigaSidebarDireita() {
+  let DBMsg = JSON.parse(localStorage.getItem("dbMensagens"));
+  let UsuarioAtual = localStorage.getItem("usuarioAtual");
+  let conteudoItem = document.getElementById("mensagemAntiga");
+  let conteudoTitulo = document.getElementById("msgAntigaTitulo");
+  let temMsg = false;
+  for (i = 0; i < DBMsg.mensagens.length; i++) {
+    let msg = DBMsg.mensagens[i];
+    if (msg.para == UsuarioAtual && !temMsg) {
+      conteudoTitulo.innerText = "Mensagem mais antiga:";
+      conteudoItem.innerText = msg.titulo;
+      temMsg = true;
+    }
+  }
+  if (!temMsg) {
+    conteudoTitulo.innerText = "Sem mensagens novas";
+    conteudoItem.setAttribute("hidden", true);
+  }
+}
+function criardbMensagem() {
+  let parser = localStorage.getItem("db");
+  let objDados = JSON.parse(parser);
+  let id0 = objDados.usuarios[0].usuario_id;
+  let id1 = objDados.usuarios[1].usuario_id;
+  let id2 = objDados.usuarios[2].usuario_id;
+  let Mensagens = {
+    mensagens: [
+      { de: id0, para: id1, titulo: "Mensagem Teste-1", mensagem: "Teste corpo da mensagem 1.", id: gerarID() },
+      { de: id1, para: id2, titulo: "Mensagem Teste-2", mensagem: "Teste corpo da mensagem 2.", id: gerarID() },
+      { de: id2, para: id0, titulo: "Mensagem Teste-3", mensagem: "Teste corpo da mensagem 3.", id: gerarID() }
+    ]
+  }
+  salvaDBMensagen(Mensagens);
+}
+function salvaDBMensagen(DB) {
+  localStorage.setItem("dbMensagens", JSON.stringify(DB));
+}
 window.onload = function () {
   if (localStorage.getItem("primeiraVezDb") === null) {
     let conteudoDb = { material: [{ disciplina: 'teste', url: 'teste', titulo: 'teste', textoImagemVideo: '3' }] }
@@ -179,9 +213,15 @@ window.onload = function () {
   if (!(localStorage.getItem("db") === null)) {
     let parser = localStorage.getItem("db");
     let objDados = JSON.parse(parser);
-    let parser2 = localStorage.getItem("usuarioAtual");
-    let indexUsuario = JSON.parse(parser2);
-    if (objDados.usuarios[indexUsuario].professor) {
+    let idUsuario = localStorage.getItem("usuarioAtual");
+    let eProfessor = achaUsuarioAtual(idUsuario, objDados);
+    document.getElementById("sidebarDireita").removeAttribute("hidden");
+    let dbMensagens = localStorage.getItem("dbMensagens");
+    if (!dbMensagens) {
+      criardbMensagem(idUsuario);
+    }
+    colocaMsgAntigaSidebarDireita();
+    if (eProfessor) {
       document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);
 
     } else {
@@ -189,6 +229,9 @@ window.onload = function () {
     }
   } else {
     document.getElementById('professorApenas').innerHTML = '';
+  }
+  if (localStorage.getItem("primeiraVezDb") == true) {
+
   }
 }
 document.getElementById("btnConteudoMostrar").addEventListener("click", mostrarConteudoTela);
