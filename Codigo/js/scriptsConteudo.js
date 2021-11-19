@@ -183,6 +183,15 @@ function colocaMsgAntigaSidebarDireita() {
     conteudoItem.setAttribute("hidden", true);
   }
 }
+function colocarConteudoSidebarDireita() {
+  let DBcont = JSON.parse(localStorage.getItem("materialTodo"));
+  let conteudoItem = document.getElementById("conteudoAntigo");
+  let conteudoTitulo = document.getElementById("conteudoAntigoTitulo");
+  let index = DBcont.material.length;
+  conteudoTitulo.innerText = "Conteúdo novo:";
+  conteudoItem.innerText = DBcont.material[index-1].titulo;
+  
+}
 function criardbMensagem() {
   let parser = localStorage.getItem("db");
   let objDados = JSON.parse(parser);
@@ -223,6 +232,7 @@ window.onload = function () {
       criardbMensagem(idUsuario);
     }
     colocaMsgAntigaSidebarDireita();
+    colocarConteudoSidebarDireita();
     if (eProfessor) {
       document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);
 
