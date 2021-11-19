@@ -79,7 +79,7 @@ function adicionarMaterialDropdown() {
   let parser = localStorage.getItem("materialTodo");
   let materiais = JSON.parse(parser);
   dropdown.innerHTML = '<option hidden disabled>Selecione o conteúdo a ver:</option>';
-  for (i = 1; i < materiais.material.length; i++) {
+  for (i = 0; i < materiais.material.length; i++) {
     let option = document.createElement('option');
     let text = document.createTextNode(materiais.material[i].titulo);
     option.appendChild(text);
@@ -105,7 +105,7 @@ function mostrarConteudoTela() {
   let opcao = dropDown.options[dropDown.selectedIndex].value;
   let conteudoTela = document.getElementById('conteudoPostado');
   let parser = localStorage.getItem("materialTodo");
-  let index = dropDown.selectedIndex;
+  let index = dropDown.selectedIndex - 1;
   let materiais = JSON.parse(parser);
   let IDUsuario = localStorage.getItem("usuarioAtual");
   let parser3 = localStorage.getItem("db");
@@ -204,14 +204,14 @@ function salvaDBMensagen(DB) {
 window.onload = function () {
   if (localStorage.getItem("primeiraVezDb") === null) {
     let conteudoDb = { material: [{ disciplina: 'Geografia', url: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec neque ac nisl aliquam viverra.', titulo: 'loren y', textoImagemVideo: '0' },
-   {disciplina: 'matematica' , url: 'encurtador.com.br/hlpHX' , titulo: ' quadro negro' , textoImagemVideo: '1'},
+   {disciplina: 'matematica' , url: 'https://lh3.googleusercontent.com/QBcyETyQ5JHd8f23mldSXuTxIg5XaQyL9eOfT_-1DpxLSz6LoSOIonJf1KJu2ItaDBPJs7lr1jT3NOqBBPlpWgwMK8egxyIrm7dJNEEvnlozx2ZHVQ2HQ2ehXHOCNGNp4CwXYvUUB1zS1Ms3-HMOjRqSXXgfhDCAvWzxXCCGi2fhmM4pO_yaZEZfUxglnsQuHFlsND3bP51HnBnkZsrc3TRqxUHfYAxQ3tX01MTel66Ky_N9BEsOPI3KJMAxJQfY1UyNAUoTT3hO2PWvqXzE0TGy_UZC7mqi_l4MXInUoJx0CHdZptCqrvb94OKJlsOlGmrxlKZUexLOrHk_qK10r3zntPXyz5rdlfOkgcGxq_12aowYLQnrtlX_Tk-98svgiRv0Lz5_tWDV2Vv28g0AbKmNsRWhURDqrnUE6-2pDEXdf8Bd8kY-U4-hRKODy_BlUMkp4jcYsuUU71CjdjBbIhdjQ9diGzT4gRsiWt8aXXt47xhYjW3iCO9Gikuh1g4zg3-TMXVojDWwlAz7t_LRXmcm2cB4JYHfZEJCvC9xm7yniVSoT2IZ9QoyUBXK2xjnqcpEH9HWZJyUh3qCp5e3vjzh8GqD6AhZ4Rk0z8cyTu2k6Hs9fH_H_EuWbIhC17TfGVFtLIFvGQGOvCOz8BLD5lYCpq77FzX4R6WuwOmg1AaQdkJk3y1jhTGIDguLWRT5Fti91IgaNp4nLKLS1u13_rY=w1010-h568-no?authuser=0' , titulo: ' quadro negro' , textoImagemVideo: '1'},
    {disciplina: 'historia' , url: 'CTIs_RSPr84' , titulo: ' idade media' , textoImagemVideo: '2'}]}
 
     localStorage.setItem("materialTodo", JSON.stringify(conteudoDb));
     localStorage.setItem("primeiraVezDb", true);
-  } else {
+  }  
     adicionarMaterialDropdown();
-  }
+  
   if (!(localStorage.getItem("db") === null)) {
     let parser = localStorage.getItem("db");
     let objDados = JSON.parse(parser);
