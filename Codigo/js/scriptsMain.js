@@ -1,3 +1,12 @@
+function achaUsuarioAtualId(Id,usuariodb){
+    for(i=0;i<usuariodb.usuarios.length;i++){
+        let usuario = usuariodb.usuarios[i];
+        if(usuario.usuario_id==Id){
+            return usuario.usuario_id.value;
+        }
+    }
+    return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
+  }
 window.onload = function(){
     if(localStorage.getItem("atividadesTodas")){
         let parser = localStorage.getItem("atividadesTodas");
@@ -40,5 +49,31 @@ window.onload = function(){
             `;
         }
     }
-    
+    if(localStorage.getItem("dbMensagens")){
+        let parser1 = localStorage.getItem("db");
+        let objDados = JSON.parse(parser1)
+        let usuarioAtualId = localStorage.getItem("usuarioAtual");
+        let parser = localStorage.getItem("dbMensagens");
+        let mensagensJs = JSON.parse(parser);
+        let tamanho = mensagensJs.mensagens.length;
+        let tela = document.getElementById("tela");
+        tela.innerHTML = tela.innerHTML + `<div><h4 class="titulo-main"> Mensagens para você </h4></div>`;
+        let i = 0;
+        
+        for(i; i < tamanho; i = i + 1){
+            if(mensagensJs.mensagens[0].para.value === achaUsuarioAtualId(usuarioAtualId, objDados)){
+                tela.innerHTML = tela.innerHTML + `
+                <div class="card cartao-main d-inline-flex p-2 bd-highlight">
+                  <h5 class="card-header">Mensagem de "${mensagensJs.mensagens[i].de}"</h5>
+                  <div class="card-body">
+                    <h5 class="card-title">Você recebeu uma nova mensagem!</h5>
+                    <p class="card-text">Assunto: ${mensagensJs.mensagens[i].titulo}</p>
+                    <a href="conteudo.html" class="btn btn-primary">Página de conteúdos</a>
+                  </div>
+                </div>
+                `;
+            }
+            
+        }
+    }
 }
