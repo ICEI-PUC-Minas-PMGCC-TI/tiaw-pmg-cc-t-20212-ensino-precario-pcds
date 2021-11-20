@@ -164,34 +164,6 @@ function achaUsuarioAtual(Id, usuariodb) {
   }
   return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
 }
-function colocaMsgAntigaSidebarDireita() {
-  let DBMsg = JSON.parse(localStorage.getItem("dbMensagens"));
-  let UsuarioAtual = localStorage.getItem("usuarioAtual");
-  let conteudoItem = document.getElementById("mensagemAntiga");
-  let conteudoTitulo = document.getElementById("msgAntigaTitulo");
-  let temMsg = false;
-  for (i = 0; i < DBMsg.mensagens.length; i++) {
-    let msg = DBMsg.mensagens[i];
-    if (msg.para == UsuarioAtual && !temMsg) {
-      conteudoTitulo.innerText = "Mensagem mais antiga:";
-      conteudoItem.innerText = msg.titulo;
-      temMsg = true;
-    }
-  }
-  if (!temMsg) {
-    conteudoTitulo.innerText = "Sem mensagens novas";
-    conteudoItem.setAttribute("hidden", true);
-  }
-}
-function colocarConteudoSidebarDireita() {
-  let DBcont = JSON.parse(localStorage.getItem("materialTodo"));
-  let conteudoItem = document.getElementById("conteudoAntigo");
-  let conteudoTitulo = document.getElementById("conteudoAntigoTitulo");
-  let index = DBcont.material.length;
-  conteudoTitulo.innerText = "Conteúdo novo:";
-  conteudoItem.innerText = DBcont.material[index-1].titulo;
-  
-}
 function criardbMensagem() {
   let parser = localStorage.getItem("db");
   let objDados = JSON.parse(parser);
@@ -226,13 +198,10 @@ window.onload = function () {
     let objDados = JSON.parse(parser);
     let idUsuario = localStorage.getItem("usuarioAtual");
     let eProfessor = achaUsuarioAtual(idUsuario, objDados);
-    document.getElementById("sidebarDireita").removeAttribute("hidden");
     let dbMensagens = localStorage.getItem("dbMensagens");
     if (!dbMensagens) {
       criardbMensagem(idUsuario);
     }
-    colocaMsgAntigaSidebarDireita();
-    colocarConteudoSidebarDireita();
     if (eProfessor) {
       document.getElementById("btnConteudo").addEventListener("click", colocarConteudo);
 
