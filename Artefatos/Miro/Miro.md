@@ -31,3 +31,16 @@
 2. Nanda
 
 3. Geraldo
+
+## Perguntas-Entrevistas
+
+* As próximas duas imagens mostram as perguntas que planejamos fazer para diferentes pessoas reais,baseadas
+em seu agrupamento de acordo com o mapa de stakeholders.
+
+1. Perguntas-Colegas-Coordenacao-Responsaveis.png
+
+* Perguntas para os colegas de PCDs,a coordenação das escolas em que estudam,e os responsáveis legais desses PCDs.
+
+2. Perguntas-PCD-Acompanhantes-Professores.png
+
+* Perguntas para Os próprios PCDs,acompanhantes de aulas deles,e para professores com alunos PCDs.
