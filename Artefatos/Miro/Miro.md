@@ -63,3 +63,13 @@ seriam feitas com a parente de outra aluna PCD,um colega,a PCD,e seu acompanhant
 
 * Neste arquivo,temos o resultado de uma entrevista com um acompanhante de alunos PCD.Esta pesquisa foi a mais
 profílica feita,pois todos os bons insights,que moldaram a produção da solução,vieram dela.
+
+## Highlights
+
+* No arquivo Highlights.png,apresentamos de uma forma reduzida os insights obtidos com as entrevistas realizadas pela equipe.
+
+## Wireframes
+
+* Na série de arquivos Wireframe1-1,Wireframe1-2 e Wireframe1-3.png,temos uma concepção inicial do grupo sobre como deveriam ser as páginas do site,ainda a ser criado,pelo ponto de vista de um Usuário Aluno.
+
+* Já nos arquivos Wireframe2-1 e Wireframe2-2.png,temos nossa concepção inicial sobre a perspectiva de usuários professores no site.
