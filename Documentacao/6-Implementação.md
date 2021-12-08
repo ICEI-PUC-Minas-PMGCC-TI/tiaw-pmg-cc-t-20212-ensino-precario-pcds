@@ -4,23 +4,20 @@
 
 ## Tecnologias Utilizadas
 
-> Descreva aqui qual(is) tecnologias você vai usar para resolver o seu
-> problema, ou seja, implementar a sua solução. Liste todas as
-> tecnologias envolvidas, linguagens a serem utilizadas, serviços web,
-> frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
-> Apresente também uma figura explicando como as tecnologias estão
-> relacionadas ou como uma interação do usuário com o sistema vai ser
-> conduzida, por onde ela passa até retornar uma resposta ao usuário.
-> 
-> Inclua os diagramas de User Flow, esboços criados pelo grupo
-> (stoyboards), além dos protótipos de telas (wireframes). Descreva cada
-> item textualmente comentando e complementando o que está apresentado
-> nas imagens.
+* As seguintes tecnologias foram empregadas para o desenvolvimento do projeto FOCUS:
 
+ 1. VSCode: IDE de programação utilizada pelos membros do grupo,além da extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+
+ 2. GitHub: Repositório online de código,para melhor manuseio de versões,fácil compartilhamento de código entre os integrantes do grupo,além de um sistema kanban imbutido.[Link GitHub Equipe](https://github.com/ICEI-PUC-Minas-PMGCC-TI/tiaw-pmg-cc-t-20212-ensino-precario-pcds)
+
+ 3. HTML,Javascript e CSS:Essas ferramentas,as mais básicas para desenvolvimento web,foram utilizadas por estarem dentro da capacidade dos integrantes do grupo,mas podendo mesmo assim entregar um resultado de alto nível.
+
+ 4. Figma:Para o desenvolvimento dos Wireframes do site.
+
+ 5. Miro: Quadro de ideias virtual usado na parte de concepção do projeto.
+ 
 ## Arquitetura da solução
 
-> Inclua um diagrama da solução e descreva os módulos e as tecnologias
-> que fazem parte da solução. Discorra sobre o diagrama.
 
 A imagem a seguir ilustra a o fluxo do usuário em nossa solução. Assim
 que o usuário entra na plataforma, ele é apresentado à tela inicial

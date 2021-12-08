@@ -3,11 +3,10 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação.md"> Documentação de Especificação</a></span>
 
-> Apresente as principais a interface da plataforma. Discuta como ela
-> foi elaborada de forma a atender os requisitos funcionais, não
-> funcionais e histórias de usuário abordados nas [Especificações do
-> Projeto](2-Especificação.md).
+* Com os resultados das entrevistas com stakeholders,identificamos algumas necessidades que o projeto de solução deveria ter,como:
 
+1. Uma interface simples,que não contenha muitos itens,numa mesma tela;
+2. Uso de poucas cores,de preferência de tom forte.
 ## User Flow
 
 ![Userflow Aluno](images/userflow_aluno.jpg)
