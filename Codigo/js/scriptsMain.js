@@ -1,3 +1,11 @@
+
+/**
+ * @brief Acha e retorna o id do usuario atual
+ * 
+ * @param id id do usuario
+ * @param obj de dados de todos os usuarios
+ * @return id do usuario logado
+ */
 function achaUsuarioAtualId(Id,usuariodb){
     for(i=0;i<usuariodb.usuarios.length;i++){
         let usuario = usuariodb.usuarios[i];
@@ -7,6 +15,10 @@ function achaUsuarioAtualId(Id,usuariodb){
     }
     return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
   }
+
+  /**
+   * @brief Isso é rodado no momento em que a tela é totalmente carregada
+   */
 window.onload = function(){
     if(localStorage.getItem("atividadesTodas")){
         let parser = localStorage.getItem("atividadesTodas");
@@ -61,19 +73,18 @@ window.onload = function(){
         let i = 0;
         
         for(i; i < tamanho; i = i + 1){
-            if(mensagensJs.mensagens[0].para.value === achaUsuarioAtualId(usuarioAtualId, objDados)){
+            if(mensagensJs.mensagens[0].para === achaUsuarioAtualId(usuarioAtualId, objDados)){
                 tela.innerHTML = tela.innerHTML + `
                 <div class="card cartao-main d-inline-flex p-2 bd-highlight">
                   <h5 class="card-header">Mensagem de "${mensagensJs.mensagens[i].de}"</h5>
                   <div class="card-body">
                     <h5 class="card-title">Você recebeu uma nova mensagem!</h5>
                     <p class="card-text">Assunto: ${mensagensJs.mensagens[i].titulo}</p>
-                    <a href="conteudo.html" class="btn btn-primary">Página de conteúdos</a>
+                    <a href="conteudo.html" class="btn btn-primary">Página de mensagens</a>
                   </div>
                 </div>
                 `;
             }
-            
         }
     }
 }
