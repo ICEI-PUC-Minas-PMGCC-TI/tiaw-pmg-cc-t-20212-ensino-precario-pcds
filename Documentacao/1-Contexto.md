@@ -14,11 +14,19 @@ por vários motivos,como:
  
 ## Problema
 
-* O ensino de alunos com deficiência é considerado bom o suficiente para uma formação intelectual saudável?
+* Com nossas pesquisas,identificamos as seguintes questões,que muitas vezes não são contempladas em suas experiências na escola:
+
+ 1. O ensino de alunos com deficiência é considerado bom o suficiente para uma formação intelectual saudável?
+ 2. Há  recursos extras,caso sejam necessários, para que eles possam acompanhar o ritmo das aulas?
+ 3. Esses adequações para alunos PCDs são de boa qualidade?
+ 4. Eles gostam de usar?
 
 ## Objetivos
 
-* Auxiliar alunos, com deficiência, no estudo de disciplinas escolares; e professores nesse ensino.
+1. Auxiliar alunos, com deficiência, no estudo de certas disciplinas escolares;
+2. Auxiliar professores,no ensino desses alunos;
+3. Fornecer uma solução em forma de site,que estaria disponível para os alunos PCDs a qualquer momento;
+4. Criar um projeto com uma interface simples,mas com muitas funcionalidades úteis para os usuários.
 
 ## Justificativa
 

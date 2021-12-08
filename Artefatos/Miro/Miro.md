@@ -31,3 +31,45 @@
 2. Nanda
 
 3. Geraldo
+
+## Perguntas
+
+* As próximas duas imagens mostram as perguntas que planejamos fazer para diferentes pessoas reais,baseadas
+em seu agrupamento de acordo com o mapa de stakeholders.
+
+1. Perguntas-Colegas-Coordenacao-Responsaveis.png
+
+* Perguntas para os colegas de PCDs,a coordenação das escolas em que estudam,e os responsáveis legais desses PCDs.
+
+2. Perguntas-PCD-Acompanhantes-Professores.png
+
+* Perguntas para Os próprios PCDs,acompanhantes de aulas deles,e para professores com alunos PCDs.
+
+## Entrevistas
+
+* Algumas entrevistas foram feitas,com o intuito de obter informações para melhorar uma possível
+solução para o problema enfrentado.
+
+1. Entrevista-Parente.png
+
+* Neste arquivo temos o resultado de uma entrevista com a parente de um aluno PCD(Asperger).Outras pesquisas
+seriam feitas com a parente de outra aluna PCD,um colega,a PCD,e seu acompanhante nas aulas,mas a aluna em questão não queria participar,então entrevistas relacionadas a ela não foram feitas.
+
+2. Entrevista-PCD.png
+
+* Neste arquivo,temos o resultado de uma entrevista com um aluno PCD(Asperger).Seria feita também uma pesquisa com a cooescola onde esse aluno cursou o ensino fundamental e médio,mas houve uma dificuldade de contato durante o tempo designado para que essas pesquisas fossem feitas,e então essa em específico não foi feita.
+
+3. Entrevista-Acompanhante.png
+
+* Neste arquivo,temos o resultado de uma entrevista com um acompanhante de alunos PCD.Esta pesquisa foi a mais
+profílica feita,pois todos os bons insights,que moldaram a produção da solução,vieram dela.
+
+## Highlights
+
+* No arquivo Highlights.png,apresentamos de uma forma reduzida os insights obtidos com as entrevistas realizadas pela equipe.
+
+## Wireframes
+
+* Na série de arquivos Wireframe1-1,Wireframe1-2 e Wireframe1-3.png,temos uma concepção inicial do grupo sobre como deveriam ser as páginas do site,ainda a ser criado,pelo ponto de vista de um Usuário Aluno.
+
+* Já nos arquivos Wireframe2-1 e Wireframe2-2.png,temos nossa concepção inicial sobre a perspectiva de usuários professores no site.

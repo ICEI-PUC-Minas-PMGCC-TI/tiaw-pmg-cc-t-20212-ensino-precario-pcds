@@ -10,15 +10,22 @@ function achaUsuarioAtualId(Id,usuariodb){
     for(i=0;i<usuariodb.usuarios.length;i++){
         let usuario = usuariodb.usuarios[i];
         if(usuario.usuario_id==Id){
-            return usuario.usuario_id.value;
+            return usuario.usuario_id;
         }
     }
     return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
   }
-
-  /**
-   * @brief Isso é rodado no momento em que a tela é totalmente carregada
-   */
+  function achaNomePorId(ID, DB) {
+    let resposta = "erro";
+    for (i = 0; i < DB.usuarios.length; i++) {
+        let usuario = DB.usuarios[i];
+        if (usuario.usuario_id == ID) {
+            resposta = usuario.nome;
+            return resposta;
+        }
+    }
+    return resposta;
+}
 window.onload = function(){
     if(localStorage.getItem("atividadesTodas")){
         let parser = localStorage.getItem("atividadesTodas");
@@ -73,10 +80,10 @@ window.onload = function(){
         let i = 0;
         
         for(i; i < tamanho; i = i + 1){
-            if(mensagensJs.mensagens[0].para === achaUsuarioAtualId(usuarioAtualId, objDados)){
+            if(mensagensJs.mensagens[i].para == achaUsuarioAtualId(usuarioAtualId, objDados)){
                 tela.innerHTML = tela.innerHTML + `
                 <div class="card cartao-main d-inline-flex p-2 bd-highlight">
-                  <h5 class="card-header">Mensagem de "${mensagensJs.mensagens[i].de}"</h5>
+                  <h5 class="card-header">Mensagem de "${achaNomePorId(mensagensJs.mensagens[i].de,objDados)}"</h5>
                   <div class="card-body">
                     <h5 class="card-title">Você recebeu uma nova mensagem!</h5>
                     <p class="card-text">Assunto: ${mensagensJs.mensagens[i].titulo}</p>

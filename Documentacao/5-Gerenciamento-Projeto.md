@@ -7,6 +7,18 @@ ou seja todos do grupo davam palpites sobre o que deveria ser feito e como,e as 
 que mais pareciam ser eficientes/possíveis para o problema em questão e para nosso
 nível de habilidade,de acordo com a opinião de todos os integrantes do grupo,eram acatadas.
 
+### Sprint 1
+
+Com algumas ideias para o projeto,todos os integrantes do grupo ajudaram no que podiam,sem muita divisão de tarefas,com uma exceção a ser discutida daqui a pouco.
+
+### Sprint 2,3
+
+Cada aluno ficou responsável por uma funcionalidade,mas ajudas pontuais de um integrante para outro foram observadas.Reuniões eram feitas com uma frequência de uma a duas vezes por semana para que todos mostrassem seu progresso,ou pedirem a ajuda anteriormente mencionada.
+
+### Sprint 4
+
+Como grande parte do projeto já foi feito,foi decidido que o foco desta sprint seria na documentação e na apresentação do projeto.
+
 ## Divisão de Papéis
 
 ### Sprint 0
@@ -16,13 +28,37 @@ observado na prática é que o integrante Arthur agiu como o líder do projeto,p
 experiência anterior em outro projeto sobre o mesmo assunto,e capacidade maior de tomar a 
 iniciativa nas reuniões do grupo.
 
-> Apresente a divisão de papéis entre os membros do grupo.
->
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
 
+
+### Sprint 1
+
+Rodolfo e Arthur: Encarregados de fazer entrevistas com stakeholders,pois os dois tinham várias possíveis pessoas para entrevistar.
+
+Todos os integrantes: Brainstorm de ideias,sendo colocadas as melhores no miro para futura referência.
+
+### Sprint 2
+* As funcionalidades implementadas nesta sprint foram:
+
+ * André:Login de usuários
+ * Arthur:Template inicial do site e Cadastro de usuários
+ * Rodolfo:Cadastro e exclusão de materiais de estudo por professores,e visualização dos mesmos por qualquer usuário
+
+### Sprint 3
+
+* As funcionalidades implementadas nesta sprint foram:
+
+ * André:Links para outros conteúdos do site,reunidos de uma forma organizada e chamativa numa mesma página
+ * Arthur:Cadastro de atividades por professores,e realização das mesmas por alunos
+ * Rodolfo:Sistema de mensagens diretas entre usuários diferentes
+
+### Sprint 4
+
+* Com todas as funcionalidades prontas,nesta sprint foi feito:
+
+ * André:Apresentação em powerpoint
+ * Arthur:Template padrão final do site
+ * Rodolfo: Documentação do projeto
+ * Todos:Vídeo de apresentação do projeto,apresentação em aula e testes de software
 ## Processo
 
 > A maior parte do processo de desenvolvimento do projeto está mostrado visualmente no Miro, 
@@ -30,7 +66,7 @@ iniciativa nas reuniões do grupo.
 > feito dentro do próprio GitHub e está disponível na aba "Projetos".
 ## Ferramentas
 
-As ferramentas empregadas no projeto são:
+As ferramentas empregadas no projeto foram:
 
 - VSCode
 - Miro
@@ -51,13 +87,3 @@ O andamento da Sprint foi feito via kanban do GitHub. Não há motivos para util
 se o próprio GitHub (a ferramenta que mais iremos utilizar) já disponibiliza.
 A criação dos Wireframes, userflow e protótipo de baixa fidelidade foi realizada no Figma, que facilita 
 muito a criação deles, por ser de fácil uso.
-
-> Liste quais ferramentas foram empregadas no desenvolvimento do
-> projeto, justificando a escolha delas, sempre que possível.
-> 
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [![Slack](images/slack.jpg)](https://slack.com/)
-> - [![Trello](images/trello.png)](https://trello.com/)
-> 
-> - [![Microsof Project](images/project.png)](https://products.office.com/pt-br/project/project-and-portfolio-management-software)
-> - [![Redbooth](images/redbooth.png)](https://redbooth.com/)
