@@ -178,7 +178,7 @@ function pegarLoginSenha() {
     {
         let indexID = achaUsuario(login,senha);//Já foi garantindo que o usuário existe
         localStorage.setItem("usuarioAtual",indexID);
-        window.location.href = "conteudo.html";
+        window.location.href = "main.html";
     }
     else
     {

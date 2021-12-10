@@ -16,31 +16,35 @@ function aparecerColocacao(opcaoUsuario) {
   let conteudoColocar = document.getElementById("conteudoColocado");
   switch (opcaoUsuario) {
     case "texto":
-      conteudoColocar.innerHTML = `<div class="caixinha border border-dark input-group my-3"><label for="disciplinaTexto">Disciplina deste conteúdo:</label>
-            <input type="text" id="disciplinaTexto" name="disciplinaTexto"></div>
-            <div class="caixinha border border-dark input-group my-3"><label for="tituloTexto">Título para seu texto:</label>
-            <input type="text" id="tituloTexto" name="tituloTexto"></div>
-            <div class="caixinha border border-dark input-group my-3"><label class="d-block" for="corpoTexto">Coloque abaixo o texto principal:</label>
-            <textarea type="text" id="corpoTexto" class="d-block" rows="20" cols="45" classname="corpoTexto"></textarea>
-            <button onclick="desaparecerColocacaoTexto()">Ok</button></div>`;
+      conteudoColocar.innerHTML = `<label for="disciplinaTexto">Disciplina deste conteúdo:</label><div class="input-group">
+            <input type="text" id="disciplinaTexto" name="disciplinaTexto" class="input form-control"></div>
+            <label for="tituloTexto">Título para seu texto:</label>
+            <div class="input-group">
+            <input type="text" id="tituloTexto" name="tituloTexto" class="input form-control"></div>
+            <label class="d-block" for="corpoTexto">Coloque abaixo o texto principal:</label>
+            <div class="input-group">
+            <textarea type="text" id="corpoTexto" class="input form-control" rows="20" cols="45" classname="corpoTexto"></textarea>
+            </div><br>
+            <button onclick="desaparecerColocacaoTexto()" class="btn btn-success">Publicar</button><br><br>`;
       break;
     case "imagem":
-      conteudoColocar.innerHTML = `<div class="caixinha border border-dark input-group my-3"><label for="disciplinaImagem">Disciplina deste conteúdo:</label>
-            <input type="text" id="disciplinaImagem" name="disciplinaImagem"></div>
-            <div class="caixinha border border-dark input-group my-3"><label for="tituloImagem">Título para a imagem:</label>
-            <input type="text" id="tituloImagem" name="tituloImagem"></div>
-            <div class="caixinha border border-dark input-group my-3"><label for="urlImagem">Insira a URL da imagem:</label>
-            <input type="text" id="urlImagem" name="urlImagem"></div>
-            <button onclick="desaparecerColocacaoImagem()">Ok</button>`;
+      conteudoColocar.innerHTML = `
+            <label for="disciplinaImagem">Disciplina deste conteúdo:</label><div class="input-group">
+            <input type="text" id="disciplinaImagem" name="disciplinaImagem" class="input form-control"></div>
+            <label for="tituloImagem">Título para a imagem:</label><div class="input-group">
+            <input type="text" id="tituloImagem" name="tituloImagem" class="input form-control"></div>
+            <label for="urlImagem">Insira a URL da imagem:</label><div class="input-group">
+            <input type="text" id="urlImagem" name="urlImagem" class="input form-control"></div><br>
+            <button onclick="desaparecerColocacaoImagem()" class="btn btn-success">Publicar</button><br><br>`;
       break;
     case "video":
-      conteudoColocar.innerHTML = `<div class="caixinha border border-dark input-group my-3"><label for="disciplinaVideo">Disciplina deste conteúdo:</label>
-            <input type="text" id="disciplinaVideo" name="disciplinaVideo"></div>
-            <div class="caixinha border border-dark input-group my-3"><label for="tituloVideo">Título para o vídeo:</label>
-            <input type="text" id="tituloVideo" name="tituloVideo"></div>
-            <div class="caixinha border border-dark input-group my-3"><label for="urlVideo">Insira a parte final da URL do vídeo:</label>
-            <input type="text" id="urlVideo" name="urlVideo"></div>
-            <button onclick="desaparecerColocacaoVideo()">Ok</button>`;
+      conteudoColocar.innerHTML = `<label for="disciplinaVideo">Disciplina deste conteúdo:</label><div class="input-group">
+            <input type="text" id="disciplinaVideo" name="disciplinaVideo" class="input form-control"></div>
+            <label for="tituloVideo">Título para o vídeo:</label><div class="input-group">
+            <input type="text" id="tituloVideo" name="tituloVideo" class="input form-control"></div>
+            <label for="urlVideo">Insira a parte final da URL do vídeo:</label><div class="input-group">
+            <input type="text" id="urlVideo" name="urlVideo" class="input form-control"></div><br>
+            <button onclick="desaparecerColocacaoVideo()" class="btn btn-success">Publicar</button><br><br>`;
       break;
   }
 
@@ -114,19 +118,19 @@ function mostrarConteudoTela() {
   if (opcao != "3") {
     switch (opcao) {
       case '0':
-        let textoHTML = `<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
-            <div class="caixa border border-dark my-3 mx-3"><p class="text-center">${materiais.material[index].url}</p></div>`;
+        let textoHTML = `<div class="my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+            <div class="my-3 mx-3"><p class="text-center">${materiais.material[index].url}</p></div>`;
         if (usuarioPermissao) {
-          textoHTML += `<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+          textoHTML += `<div class="d-flex justify-content-center"><button class="mx-3 my-3 btn btn-danger"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div><br><br>`;
         }
         conteudoTela.innerHTML = textoHTML;
         break;
 
       case '1':
-        let textoHTML2 = `<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
-            <div class="caixa border border-dark my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div>`
+        let textoHTML2 = `<div class="my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+            <div class="my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div>`
         if (usuarioPermissao) {
-          textoHTML2 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+          textoHTML2 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3 btn btn-danger" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div><br><br>`;
         }
         conteudoTela.innerHTML = textoHTML2;
         break;
@@ -134,10 +138,10 @@ function mostrarConteudoTela() {
       case '2':
         let name = 'https://www.youtube.com/embed/';
         name += materiais.material[index].url;
-        let textoHTML3 = `<div class="caixinha border border-dark my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
-            <iframe width="727" height="409" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+        let textoHTML3 = `<div class="my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+            <iframe width="250" height="200" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
         if (usuarioPermissao) {
-          textoHTML3 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div>`;
+          textoHTML3 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3 btn btn-danger" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div><br><br>`;
         }
         conteudoTela.innerHTML = textoHTML3;
         break;

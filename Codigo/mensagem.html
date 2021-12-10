@@ -17,7 +17,6 @@
     <nav class="navbar">
       <span class="logo">FOCUS</span> <!-- Clicar aqui irá para a Home. Deixar as opções de menu no aside-->
       <div class="text_logout">
-        <input type="text" placeholder=" Pesquisar">
         <a href="index.html"><i class="fas fa-sign-out-alt"></i></a>
         <!--Logout icon. Ainda vou alinhar -->
       </div>
@@ -29,8 +28,8 @@
       <section class="main conteudo">
         <div class="col-12 col-md-12 col-lg-12 col-sm-12 ml-2 justify-content-between">
           <div id="desaparecerDepois">
-            <h1 class="text-center border border-dark caixinha my-2">Aqui ficarão suas mensagens,</h1>
-            <p class="text-center border border-dark caixinha my-3">quando você receber uma!</p>
+            <h2 class="text-center">Aqui ficarão suas mensagens,</h2>
+            <p class="text-center">quando você receber uma!</p>
           </div>
           <div id="aparecerDepois" hidden>
             <!--Aqui ficará o dropdown das mensagens-->
@@ -38,47 +37,48 @@
           <div id="aparecerDepoisMensagem" hidden>
             <!--Aqui ficaram as mensagens pro usuario-->
           </div>
-          <div class="caixinha border border-dark input-group my-3">
-            <select id="usuariosDrop">
+          <div class="input-group">
+            <select id="usuariosDrop" class="center btn btn-light">
 
             </select>
           </div>
-          <div class="caixinha border border-dark input-group my-3"><label for="tituloMensagem">Título para sua
-              mensagem:</label>
-            <input type="text" id="tituloMensagem" name="tituloTexto">
+          <label for="tituloMensagem">Título para sua mensagem:</label>
+          <div class="input-group">
+            <input type="text" id="tituloMensagem" name="tituloTexto" class="input form-control">
           </div>
-          <div class="caixinha border border-dark input-group my-3"><label class="d-block" for="corpoMensagem">Coloque
-              abaixo sua mensagem:</label>
-            <textarea type="text" id="corpoMensagem" class="d-block" rows="20" cols="45"
+          <label class="d-block" for="corpoMensagem">Coloque abaixo sua mensagem:</label>
+          <div class="input-group">
+            <textarea type="text" id="corpoMensagem" class="input form-control" rows="20" cols="45"
               classname="corpoTexto"></textarea>
-            <button onclick="validarMensagem()">Ok</button>
+          </div>
+          <div class="center">
+            <br>
+          <button onclick="validarMensagem()" class="btn btn-secondary center">Ok</button>
           </div>
         </div>
+        
       </section>
       <aside class="sidebar">
         <nav class="col-12 col-md-2 col-lg-2 col-sm-1 sidebar">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="https://pucminas.br"><img src="img/logo_puc.png" class="logo_puc"></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="main.html"><i class="fab fa-algolia"></i>Pendências</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="perfil.html"><i class="fas fa-user-alt"></i>Perfil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="conteudo.html"><i class="fas fa-file-alt"></i>Conteúdos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="atividade.html"><i class="fas fa-pencil-alt"></i>Atividades</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="mensagem.html"><i class="fas fa-envelope"></i>Mensagens</a>
-            </li>
-          </ul>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://pucminas.br"><img src="img/logo_puc.png" class="logo_puc aside-option"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.html"><i class="fab fa-algolia"></i><span class="aside-option">Pendências</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="conteudo.html"><i class="fas fa-file-alt"></i><span class="aside-option">Conteúdos</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="atividade.html"><i class="fas fa-pencil-alt"></i><span class="aside-option">Atividades</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mensagem.html"><i class="fas fa-envelope"></i><span class="aside-option">Mensagens</span></a>
+                </li>
+            </ul>
         </nav>
-      </aside>
+    </aside>
     </div>
   </main>
   <footer class="container">

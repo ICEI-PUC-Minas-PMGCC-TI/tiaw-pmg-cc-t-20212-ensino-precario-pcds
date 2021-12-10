@@ -37,7 +37,7 @@ window.onload = function(){
 
         for(i; i < tamanho; i = i + 1){
             tela.innerHTML = tela.innerHTML + `
-            <div class="card cartao-main d-inline-flex p-2 bd-highlight">
+            <div class="card cartao-main d-inline-flex p-2 bd-highlight col-12 col-sm-12 col-lg-6 col-md-12">
               <h5 class="card-header">Atividade "${atividades.atividade[i].titulo}"</h5>
               <div class="card-body">
                 <h5 class="card-title">Veja essa nova atividade!</h5>

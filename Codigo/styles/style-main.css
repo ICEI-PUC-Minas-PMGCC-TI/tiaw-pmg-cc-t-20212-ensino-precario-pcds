@@ -55,7 +55,8 @@ body{
     width: 150px;
 }
 .sidebar ul:first-child{
-    padding-top: 30%;
+    padding-top: 50%;
+
 }
 .sidebar nav ul li a{
     display: flex;
@@ -90,6 +91,9 @@ body{
 .main section{
     position: relative;
     left: 24%;
+}
+.main > div{
+    margin-left: 0rem;
 }
 
 .center{
@@ -143,7 +147,7 @@ body{
     display: inline;
 }
 .cartao-main{
-    width: 45%;
+    width: 320px;
     height: 250px;
     margin: 15px;
 }
@@ -157,6 +161,7 @@ body{
 
 .footer {
     position: inherit;
+    bottom: 0;
     margin: 0;
     background: #dc3545;
     width: 100%;
@@ -178,3 +183,76 @@ label{
 
 /*     TAGS MAIN FIM     */
 
+@media screen and (max-width: 600px){
+    .aside-option{
+        display: none;
+    }
+    .sidebar{
+        width: 15%;
+        background: #dc3545;
+        height: 100%;
+        position: fixed;
+        top:0;
+        z-index: 2;
+    }
+    #qualAtividade{
+        width: 200px;
+    }
+    .sidebar ul:first-child{
+        padding-top: 90px;
+    
+    }
+    body{
+        font-size: smaller;
+    }
+    .cartao-main{
+        width: 230px;
+        height: 350px;
+        margin: 15px;
+    }
+    button{
+        width: 180px;
+    }
+    #conteudoVer{
+        width: 150px;
+    }
+    select{
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 930px) {
+    .aside-option{
+        display: none;
+    }
+    
+    .sidebar{
+        width: 15%;
+        background: #dc3545;
+        height: 100%;
+        position: fixed;
+        top:0;
+        z-index: 2;
+    }
+    .sidebar ul:first-child{
+        padding-top: 90px;
+    
+    }
+    .cartao-main{
+        width: 240px;
+        height: 350px;
+        margin: 15px;
+    }
+    .btn{
+        width: 180px;
+    }
+    body{
+        font-size: small;
+    }
+    #conteudoVer{
+        width: 200px;
+    }
+    select{
+        width: 300px;
+    }
+}

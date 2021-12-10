@@ -45,14 +45,14 @@ html{
 }
 .main .login-cadastro{
     background: #fce6e6;
-    margin: 0;
+    margin: 0 auto;
     width:100%;
 }
 .main .carrosel{
     position: relative;
     text-align: center;
     margin: 20px;
-    margin-left: 50px;
+    margin-left: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
     background: #f8d4d4;
@@ -88,7 +88,7 @@ html{
     position: relative;
     text-align: center;
     margin: 20px;
-    margin-left: 50px;
+    margin-left: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
     background: #f8d4d4;
@@ -146,4 +146,3 @@ html{
 /*  ROW FOOTER FIM*/
 
 /*     TAGS MAIN FIM     */
-

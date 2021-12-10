@@ -158,9 +158,9 @@ function mostrarMensagem(dropdown, DBUsuarios, dbMensagens) {
     let idDe = achaIDde(idMsg, dbMensagens);
     let mensagens = document.getElementById("aparecerDepoisMensagem");
     mensagens.innerHTML = `
-    <h2 class="text-center border border-dark caixinha my-2">Mensagem de: ${achaNomePorId(idDe, DBUsuarios)}</h2>
-    <h1 class="text-center border border-dark caixinha my-2">${achaTituloPorIDs(idMsg, dbMensagens)}</h1>
-    <p class="text-center border border-dark caixinha my-3">${achaTextoPorIDs(idMsg, dbMensagens)}</p>
+    <h2 class="text-center">Mensagem de: ${achaNomePorId(idDe, DBUsuarios)}</h2>
+    <h1 class="text-center">${achaTituloPorIDs(idMsg, dbMensagens)}</h1>
+    <p class="text-center">${achaTextoPorIDs(idMsg, dbMensagens)}</p>
  `
 }
 function achaIDde(idMsg, dbMensagens) {
