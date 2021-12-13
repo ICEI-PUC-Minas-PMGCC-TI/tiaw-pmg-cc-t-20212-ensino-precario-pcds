@@ -128,7 +128,7 @@ function mostrarConteudoTela() {
 
       case '1':
         let textoHTML2 = `<div class="my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
-            <div class="my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div>`
+            <center><div class="my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div><center>`
         if (usuarioPermissao) {
           textoHTML2 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3 btn btn-danger" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div><br><br>`;
         }
@@ -139,7 +139,7 @@ function mostrarConteudoTela() {
         let name = 'https://www.youtube.com/embed/';
         name += materiais.material[index].url;
         let textoHTML3 = `<div class="my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
-            <iframe width="250" height="200" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+            <center><iframe width="750" height="500" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><center>`
         if (usuarioPermissao) {
           textoHTML3 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3 btn btn-danger" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div><br><br>`;
         }

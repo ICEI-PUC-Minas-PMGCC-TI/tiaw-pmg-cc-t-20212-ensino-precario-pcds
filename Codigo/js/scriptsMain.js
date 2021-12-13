@@ -87,7 +87,7 @@ window.onload = function(){
                   <div class="card-body">
                     <h5 class="card-title">Você recebeu uma nova mensagem!</h5>
                     <p class="card-text">Assunto: ${mensagensJs.mensagens[i].titulo}</p>
-                    <a href="conteudo.html" class="btn btn-primary">Página de mensagens</a>
+                    <a href="mensagem.html" class="btn btn-primary">Página de mensagens</a>
                   </div>
                 </div>
                 `;
