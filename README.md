@@ -17,4 +17,4 @@ por professores que entendem suas dificuldades.
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Crie uma conta normalmente, dizendo se é professor ou não. Caso seja, você poderá criar novos conteúdos e atividades. Ao fazer o login, você irá se deparar com a tela principal, a tela de pendências, em que serão mostradas as atividades, matérias e mensagens disponíveis. Clique nas opções de barra lateral para acessar as telas de criação e visualização de conteúdos, atividades e mensagens.
