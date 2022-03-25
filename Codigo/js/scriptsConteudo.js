@@ -112,7 +112,7 @@ function mostrarConteudoTela() {
   let index = dropDown.selectedIndex - 1;
   let materiais = JSON.parse(parser);
   let IDUsuario = localStorage.getItem("usuarioAtual");
-  let parser3 = localStorage.getItem("db");
+  let parser3 = localStorage.getItem("focus.ls.users");
   let objDados = JSON.parse(parser3);
   let usuarioPermissao = achaUsuarioAtual(IDUsuario, objDados);
   if (opcao != "3") {
@@ -169,7 +169,7 @@ function achaUsuarioAtual(Id, usuariodb) {
   return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
 }
 function criardbMensagem() {
-  let parser = localStorage.getItem("db");
+  let parser = localStorage.getItem("focus.ls.users");
   let objDados = JSON.parse(parser);
   let id0 = objDados.usuarios[0].usuario_id;
   let id1 = objDados.usuarios[1].usuario_id;
@@ -197,8 +197,8 @@ window.onload = function () {
   }  
     adicionarMaterialDropdown();
   
-  if (!(localStorage.getItem("db") === null)) {
-    let parser = localStorage.getItem("db");
+  if (!(localStorage.getItem("focus.ls.users") === null)) {
+    let parser = localStorage.getItem("focus.ls.users");
     let objDados = JSON.parse(parser);
     let idUsuario = localStorage.getItem("usuarioAtual");
     let eProfessor = achaUsuarioAtual(idUsuario, objDados);

@@ -99,7 +99,7 @@ function criarMensagem(titulo, corpo, IDDestinatario) {
     salvaDBMensagen(dbMensagens);
 }
 function criardbMensagem() {
-    let parser = localStorage.getItem("db");
+    let parser = localStorage.getItem("focus.ls.users");
     let objDados = JSON.parse(parser);
     let id0 = objDados.usuarios[0].usuario_id;
     let id1 = objDados.usuarios[1].usuario_id;
@@ -173,8 +173,8 @@ function achaIDde(idMsg, dbMensagens) {
     }
 }
 window.onload = function () {
-    if (!(localStorage.getItem("db") === null)) {
-        let parser = localStorage.getItem("db");
+    if (!(localStorage.getItem("focus.ls.users") === null)) {
+        let parser = localStorage.getItem("focus.ls.users");
         let objDados = JSON.parse(parser);
         let IDUsuario = localStorage.getItem("usuarioAtual");
         let usuarioPermissao = achaUsuarioAtual(IDUsuario, objDados);

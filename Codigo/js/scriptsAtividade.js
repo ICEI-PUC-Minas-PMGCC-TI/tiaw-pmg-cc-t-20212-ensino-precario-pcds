@@ -318,8 +318,8 @@ window.onload = function () {
     adicionarAtividadeDropdown();
   }
 
-  if (!(localStorage.getItem("db") === null)) {
-    let parser = localStorage.getItem("db");
+  if (!(localStorage.getItem("focus.ls.users") === null)) {
+    let parser = localStorage.getItem("focus.ls.users");
   let objDados = JSON.parse(parser);
   let idUsuario = localStorage.getItem("usuarioAtual");
   let eProfessor = achaUsuarioAtual(idUsuario,objDados);

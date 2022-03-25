@@ -1,4 +1,23 @@
+const checkAside = document.querySelector("input.none");
+const openAsideBtn = document.querySelector("#openSideBar");
+const modalAside = document.querySelector(".modal-aside");
 
+function openAside(){
+    let isChecked = checkAside.checked;
+    if (isChecked == true) {
+        checkAside.checked = false;
+    }else{
+        checkAside.checked = true;
+    }
+    if (!isChecked) {
+        modalAside.style.display = "flex";
+    }else{
+        modalAside.style.display = "none";
+
+    }
+}
+
+openAsideBtn.addEventListener("click", openAside);
 /**
  * @brief Acha e retorna o id do usuario atual
  * 
@@ -69,7 +88,7 @@ window.onload = function(){
         }
     }
     if(localStorage.getItem("dbMensagens")){
-        let parser1 = localStorage.getItem("db");
+        let parser1 = localStorage.getItem("focus.ls.users");
         let objDados = JSON.parse(parser1)
         let usuarioAtualId = localStorage.getItem("usuarioAtual");
         let parser = localStorage.getItem("dbMensagens");

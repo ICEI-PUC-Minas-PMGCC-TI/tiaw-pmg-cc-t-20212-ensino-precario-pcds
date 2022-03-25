@@ -17,8 +17,8 @@
     <nav class="navbar">
       <span class="logo">FOCUS</span> <!-- Clicar aqui irá para a Home. Deixar as opções de menu no aside-->
       <div class="text_logout">
-        <a href="index.html"><i class="fas fa-sign-out-alt"></i></a>
-        <!--Logout icon. Ainda vou alinhar -->
+        <i class="fas fa-bars" id="openSideBar"></i>
+        <input type="checkbox" class="none">
       </div>
     </nav>
   </header>
@@ -29,9 +29,9 @@
         <div id="tela" class="inline">
         </div>
       </section>
-      <aside class="sidebar">
-        <nav class="col-12 col-md-2 col-lg-2 col-sm-1 sidebar">
-            <ul class="nav flex-column">
+      <aside class="modal-aside">
+        <nav>
+          <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link" href="https://pucminas.br"><img src="img/logo_puc.png" class="logo_puc aside-option"></a>
                 </li>
@@ -49,7 +49,7 @@
                 </li>
             </ul>
         </nav>
-    </aside>
+      </aside>
     </div>
   </main>
   <footer class="container">
