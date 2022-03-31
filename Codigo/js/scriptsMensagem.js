@@ -1,3 +1,9 @@
+const checkAside = document.querySelector("input.none");
+const openAsideBtn = document.querySelector("#openSideBar");
+const asideButton = document.querySelector(".nav-top-expand");
+const searchReposInput = document.getElementById("searchInputId");
+
+
 function gerarID() {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -6,9 +12,37 @@ function gerarID() {
     // exemplo de ID gerado: _a7ny9bdqz
     return '_' + Math.random().toString(36).substr(2, 9);
 }
+
+function toggleAside(){
+    let asideBar = document.querySelector("aside.aside-bar");
+    let asideBarH1 = document.querySelectorAll("h1.aside-option");
+    let mainArticle = document.querySelector("article.content");
+    let isChecked = document.querySelector("input.none").checked;
+    if(!isChecked){
+        asideBar.style.width = "80px";
+        mainArticle.style.width = "calc(100% - 80px - 1rem)";
+        mainArticle.style.left = "80px";
+        asideBarH1.forEach((e) => {
+            e.style.display = "none";
+        });
+        document.querySelector("input.none").checked = true;
+    }else{
+        asideBar.style.width = "200px";
+        mainArticle.style.width = "calc(100% - 200px - 1rem)";
+        mainArticle.style.left = "200px";
+        asideBarH1.forEach((e) => {
+            e.style.display = "inline";
+        });
+        document.querySelector("input.none").checked = false;
+    }    
+  }
+  
+  asideButton.addEventListener("click", toggleAside);
+  
+
 function achaUsuarioAtual(Id, usuariodb) {
-    for (i = 0; i < usuariodb.usuarios.length; i++) {
-        let usuario = usuariodb.usuarios[i];
+    for (i = 0; i < usuariodb.users.length; i++) {
+        let usuario = usuariodb.users[i];
         if (usuario.usuario_id == Id) {
             return true;
         }
@@ -17,8 +51,8 @@ function achaUsuarioAtual(Id, usuariodb) {
 }
 function achaNomePorId(ID, DB) {
     let resposta = "erro";
-    for (i = 0; i < DB.usuarios.length; i++) {
-        let usuario = DB.usuarios[i];
+    for (i = 0; i < DB.users.length; i++) {
+        let usuario = DB.users[i];
         if (usuario.usuario_id == ID) {
             resposta = usuario.nome;
             return resposta;
@@ -56,13 +90,13 @@ function adicionaUsuariosDropdown(objDados) {
     let dropdown = document.getElementById("usuariosDrop");
     let IDAtual = localStorage.getItem("usuarioAtual")
     dropdown.innerHTML = '<option selected disabled value = 0>Selecione para quem a mensagem é:</option>';
-    for (i = 0; i < objDados.usuarios.length; i++) {
-        if (IDAtual != objDados.usuarios[i].usuario_id) {
+    for (i = 0; i < objDados.users.length; i++) {
+        if (IDAtual != objDados.users[i].usuario_id) {
             let option = document.createElement('option');
-            let text = document.createTextNode(objDados.usuarios[i].nome);
+            let text = document.createTextNode(objDados.users[i].nome);
             option.appendChild(text);
             dropdown.appendChild(option);
-            option.setAttribute('value', objDados.usuarios[i].usuario_id);
+            option.setAttribute('value', objDados.users[i].usuario_id);
         }
     }
 }
@@ -99,11 +133,11 @@ function criarMensagem(titulo, corpo, IDDestinatario) {
     salvaDBMensagen(dbMensagens);
 }
 function criardbMensagem() {
-    let parser = localStorage.getItem("focus.ls.users");
+    let parser = localStorage.getItem("db");
     let objDados = JSON.parse(parser);
-    let id0 = objDados.usuarios[0].usuario_id;
-    let id1 = objDados.usuarios[1].usuario_id;
-    let id2 = objDados.usuarios[2].usuario_id;
+    let id0 = objDados.users[0].usuario_id;
+    let id1 = objDados.users[1].usuario_id;
+    let id2 = objDados.users[2].usuario_id;
     let Mensagens = {
         mensagens: [
             { de: id0, para: id1, titulo: "Mensagem Teste-1", mensagem: "Teste corpo da mensagem 1.", id: gerarID() },
@@ -173,8 +207,8 @@ function achaIDde(idMsg, dbMensagens) {
     }
 }
 window.onload = function () {
-    if (!(localStorage.getItem("focus.ls.users") === null)) {
-        let parser = localStorage.getItem("focus.ls.users");
+    if (!(localStorage.getItem("db") === null)) {
+        let parser = localStorage.getItem("db");
         let objDados = JSON.parse(parser);
         let IDUsuario = localStorage.getItem("usuarioAtual");
         let usuarioPermissao = achaUsuarioAtual(IDUsuario, objDados);

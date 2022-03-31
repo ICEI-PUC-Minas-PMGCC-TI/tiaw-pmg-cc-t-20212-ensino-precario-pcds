@@ -274,9 +274,9 @@ function generateID() { // not my function
 function startLocalStorage(){
     if(!localStorage.getItem("db")){
         let first_user = {
-            users: [{user_id: generateID(), name: "Arthur", username: "Arthur_The_Greatest", email: "arthur@gmail.com", password: "12345678", professor_flag: true, admin_flag: true},
-                    {user_id: generateID(), name: "Rodrigues", username: "Rodrigues_The_Greatest", email: "rodrigues@gmail.com", password: "12345678", professor_flag: true, admin_flag: true},
-                    {user_id: generateID(), name: "Soares", username: "Soares_The_Greatest", email: "soares@gmail.com", password: "12345678", professor_flag: true, admin_flag: true}],
+            users: [{user_id: generateID(), name: "Arthur", username: "arthur", email: "arthur@gmail.com", password: "12345678", professor_flag: true, admin_flag: true},
+                    {user_id: generateID(), name: "Rodrigues", username: "rodrigues", email: "rodrigues@gmail.com", password: "12345678", professor_flag: true, admin_flag: true},
+                    {user_id: generateID(), name: "Soares", username: "soares", email: "soares@gmail.com", password: "12345678", professor_flag: true, admin_flag: true}],
         };
         localStorage.setItem("db", JSON.stringify(first_user));
     }

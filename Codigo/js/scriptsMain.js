@@ -1,23 +1,10 @@
 const checkAside = document.querySelector("input.none");
 const openAsideBtn = document.querySelector("#openSideBar");
-const modalAside = document.querySelector(".modal-aside");
+const asideButton = document.querySelector(".nav-top-expand");
+const profileDiv = document.querySelector(".profile-info");
+const projectsDiv = document.querySelector(".projects");
+const searchReposInput = document.getElementById("searchInputId");
 
-function openAside(){
-    let isChecked = checkAside.checked;
-    if (isChecked == true) {
-        checkAside.checked = false;
-    }else{
-        checkAside.checked = true;
-    }
-    if (!isChecked) {
-        modalAside.style.display = "flex";
-    }else{
-        modalAside.style.display = "none";
-
-    }
-}
-
-openAsideBtn.addEventListener("click", openAside);
 /**
  * @brief Acha e retorna o id do usuario atual
  * 
@@ -26,20 +13,20 @@ openAsideBtn.addEventListener("click", openAside);
  * @return id do usuario logado
  */
 function achaUsuarioAtualId(Id,usuariodb){
-    for(i=0;i<usuariodb.usuarios.length;i++){
-        let usuario = usuariodb.usuarios[i];
-        if(usuario.usuario_id==Id){
-            return usuario.usuario_id;
+    for(i=0;i<usuariodb.users.length;i++){
+        let usuario = usuariodb.users[i];
+        if(usuario.user_id==Id){
+            return usuario.user_id;
         }
     }
     return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
   }
   function achaNomePorId(ID, DB) {
     let resposta = "erro";
-    for (i = 0; i < DB.usuarios.length; i++) {
-        let usuario = DB.usuarios[i];
-        if (usuario.usuario_id == ID) {
-            resposta = usuario.nome;
+    for (i = 0; i < DB.users.length; i++) {
+        let usuario = DB.users[i];
+        if (usuario.user_id == ID) {
+            resposta = usuario.name;
             return resposta;
         }
     }
@@ -51,17 +38,18 @@ window.onload = function(){
         let atividades = JSON.parse(parser);
         let tamanho = atividades.atividade.length;
         let tela = document.getElementById("tela");
-        tela.innerHTML = tela.innerHTML + `<div><h4 class="titulo-main"> Atividades </h4></div>`;
+        tela.innerHTML = tela.innerHTML + `<div class="block"><h1 class="titulo-main"> Atividades </h1></div>`;
         let i = 0;
 
         for(i; i < tamanho; i = i + 1){
             tela.innerHTML = tela.innerHTML + `
-            <div class="card cartao-main d-inline-flex p-2 bd-highlight col-12 col-sm-12 col-lg-6 col-md-12">
-              <h5 class="card-header">Atividade "${atividades.atividade[i].titulo}"</h5>
+            <div class="card-ex">
+              <div class="card-title">
+                <h1 class="card-title">Atividade "${atividades.atividade[i].titulo}"</h1>
+              </div>
               <div class="card-body">
-                <h5 class="card-title">Veja essa nova atividade!</h5>
                 <p class="card-text">Matéria: ${atividades.atividade[i].materia}</p>
-                <a href="atividade.html" class="btn btn-primary">Página de atividades</a>
+                <a href="atividade.html"><button>Página de Atividades</button></a>
               </div>
             </div>
             `;
@@ -72,16 +60,17 @@ window.onload = function(){
         let materiais = JSON.parse(parser);
         let tamanho = materiais.material.length;
         let tela = document.getElementById("tela");
-        tela.innerHTML = tela.innerHTML + `<div><h4 class="titulo-main"> Conteúdos </h4></div>`;
+        tela.innerHTML = tela.innerHTML + `<div class="block"><h1 class="titulo-main"> Conteúdos </h1></div>`;
         let i = 0;
         for(i; i < tamanho; i = i + 1){
             tela.innerHTML = tela.innerHTML + `
-            <div class="card cartao-main d-inline-flex p-2 bd-highlight">
-              <h5 class="card-header">Conteúdo "${materiais.material[i].disciplina}"</h5>
+            <div class="card-ex">
+              <div class="card-title">
+                <h1 class="card-title">Atividade "${materiais.material[i].disciplina}"</h1>
+              </div>
               <div class="card-body">
-                <h5 class="card-title">Veja esse novo conteúdo!</h5>
                 <p class="card-text">Matéria: ${materiais.material[i].titulo}</p>
-                <a href="conteudo.html" class="btn btn-primary">Página de conteúdos</a>
+                <a href="conteudo.html"><button>Página de Conteúdos</button></a>
               </div>
             </div>
             `;
@@ -95,18 +84,19 @@ window.onload = function(){
         let mensagensJs = JSON.parse(parser);
         let tamanho = mensagensJs.mensagens.length;
         let tela = document.getElementById("tela");
-        tela.innerHTML = tela.innerHTML + `<div><h4 class="titulo-main"> Mensagens para você </h4></div>`;
+        tela.innerHTML = tela.innerHTML + `<div class="block"><h1 class="titulo-main"> Mensagens </h1></div>`;
         let i = 0;
         
         for(i; i < tamanho; i = i + 1){
             if(mensagensJs.mensagens[i].para == achaUsuarioAtualId(usuarioAtualId, objDados)){
                 tela.innerHTML = tela.innerHTML + `
-                <div class="card cartao-main d-inline-flex p-2 bd-highlight">
-                  <h5 class="card-header">Mensagem de "${achaNomePorId(mensagensJs.mensagens[i].de,objDados)}"</h5>
+                <div class="card-ex">
+                    <div class="card-title">
+                        <h1 class="card-title">Atividade "${achaNomePorId(mensagensJs.mensagens[i].de,objDados)}"</h1>
+                    </div>
                   <div class="card-body">
-                    <h5 class="card-title">Você recebeu uma nova mensagem!</h5>
                     <p class="card-text">Assunto: ${mensagensJs.mensagens[i].titulo}</p>
-                    <a href="mensagem.html" class="btn btn-primary">Página de mensagens</a>
+                    <a href="mensagem.html"><button>Página de mensagens</button></a>
                   </div>
                 </div>
                 `;
@@ -114,3 +104,31 @@ window.onload = function(){
         }
     }
 }
+
+
+function toggleAside(){
+    let asideBar = document.querySelector("aside.aside-bar");
+    let asideBarH1 = document.querySelectorAll("h1.aside-option");
+    let mainArticle = document.querySelector("article.content");
+    let isChecked = document.querySelector("input.none").checked;
+    if(!isChecked){
+        asideBar.style.width = "80px";
+        mainArticle.style.width = "calc(100% - 80px - 1rem)";
+        mainArticle.style.left = "80px";
+        asideBarH1.forEach((e) => {
+            e.style.display = "none";
+        });
+        document.querySelector("input.none").checked = true;
+    }else{
+        asideBar.style.width = "200px";
+        mainArticle.style.width = "calc(100% - 200px - 1rem)";
+        mainArticle.style.left = "200px";
+        asideBarH1.forEach((e) => {
+            e.style.display = "inline";
+        });
+        document.querySelector("input.none").checked = false;
+    }    
+}
+
+asideButton.addEventListener("click", toggleAside);
+

@@ -1,3 +1,9 @@
+const checkAside = document.querySelector("input.none");
+const openAsideBtn = document.querySelector("#openSideBar");
+const asideButton = document.querySelector(".nav-top-expand");
+const searchReposInput = document.getElementById("searchInputId");
+
+
 function gerarID() {
   // Math.random should be unique because of its seeding algorithm.
   // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -6,6 +12,32 @@ function gerarID() {
   // exemplo de ID gerado: _a7ny9bdqz
   return '_' + Math.random().toString(36).substr(2, 9);
 }
+
+function toggleAside(){
+  let asideBar = document.querySelector("aside.aside-bar");
+  let asideBarH1 = document.querySelectorAll("h1.aside-option");
+  let mainArticle = document.querySelector("article.content");
+  let isChecked = document.querySelector("input.none").checked;
+  if(!isChecked){
+      asideBar.style.width = "80px";
+      mainArticle.style.width = "calc(100% - 80px - 1rem)";
+      mainArticle.style.left = "80px";
+      asideBarH1.forEach((e) => {
+          e.style.display = "none";
+      });
+      document.querySelector("input.none").checked = true;
+  }else{
+      asideBar.style.width = "200px";
+      mainArticle.style.width = "calc(100% - 200px - 1rem)";
+      mainArticle.style.left = "200px";
+      asideBarH1.forEach((e) => {
+          e.style.display = "inline";
+      });
+      document.querySelector("input.none").checked = false;
+  }    
+}
+
+asideButton.addEventListener("click", toggleAside);
 
 function colocarConteudo() {
   let dropDown = document.getElementById("tipoMaterial");
@@ -160,10 +192,10 @@ function retirarConteudo(index) {
   adicionarMaterialDropdown();
 }
 function achaUsuarioAtual(Id, usuariodb) {
-  for (i = 0; i < usuariodb.usuarios.length; i++) {
-    let usuario = usuariodb.usuarios[i];
-    if (usuario.usuario_id == Id) {
-      return usuario.professor;
+  for (i = 0; i < usuariodb.users.length; i++) {
+    let usuario = usuariodb.users[i];
+    if (usuario.user_id == Id) {
+      return usuario.professor_flag;
     }
   }
   return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
@@ -171,9 +203,9 @@ function achaUsuarioAtual(Id, usuariodb) {
 function criardbMensagem() {
   let parser = localStorage.getItem("focus.ls.users");
   let objDados = JSON.parse(parser);
-  let id0 = objDados.usuarios[0].usuario_id;
-  let id1 = objDados.usuarios[1].usuario_id;
-  let id2 = objDados.usuarios[2].usuario_id;
+  let id0 = objDados.users[0].user_id;
+  let id1 = objDados.users[1].user_id;
+  let id2 = objDados.users[2].user_id;
   let Mensagens = {
     mensagens: [
       { de: id0, para: id1, titulo: "Mensagem Teste-1", mensagem: "Teste corpo da mensagem 1.", id: gerarID() },
@@ -197,8 +229,8 @@ window.onload = function () {
   }  
     adicionarMaterialDropdown();
   
-  if (!(localStorage.getItem("focus.ls.users") === null)) {
-    let parser = localStorage.getItem("focus.ls.users");
+  if ((localStorage.getItem("db"))) {
+    let parser = localStorage.getItem("db");
     let objDados = JSON.parse(parser);
     let idUsuario = localStorage.getItem("usuarioAtual");
     let eProfessor = achaUsuarioAtual(idUsuario, objDados);
