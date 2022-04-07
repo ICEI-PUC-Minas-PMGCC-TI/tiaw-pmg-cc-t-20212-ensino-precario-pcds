@@ -144,13 +144,13 @@ function mostrarConteudoTela() {
   let index = dropDown.selectedIndex - 1;
   let materiais = JSON.parse(parser);
   let IDUsuario = localStorage.getItem("usuarioAtual");
-  let parser3 = localStorage.getItem("focus.ls.users");
+  let parser3 = localStorage.getItem("db");
   let objDados = JSON.parse(parser3);
   let usuarioPermissao = achaUsuarioAtual(IDUsuario, objDados);
   if (opcao != "3") {
     switch (opcao) {
       case '0':
-        let textoHTML = `<div class="my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+        let textoHTML = `<div class="content-main"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <div class="my-3 mx-3"><p class="text-center">${materiais.material[index].url}</p></div>`;
         if (usuarioPermissao) {
           textoHTML += `<div class="d-flex justify-content-center"><button class="mx-3 my-3 btn btn-danger"onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div><br><br>`;
@@ -159,7 +159,7 @@ function mostrarConteudoTela() {
         break;
 
       case '1':
-        let textoHTML2 = `<div class="my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+        let textoHTML2 = `<div class="content-main"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <center><div class="my-3 mx-3"><img class="mx-auto img-fluid" src="${materiais.material[index].url}"></div><center>`
         if (usuarioPermissao) {
           textoHTML2 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3 btn btn-danger" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div><br><br>`;
@@ -170,7 +170,7 @@ function mostrarConteudoTela() {
       case '2':
         let name = 'https://www.youtube.com/embed/';
         name += materiais.material[index].url;
-        let textoHTML3 = `<div class="my-3 mx-3"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
+        let textoHTML3 = `<div class="content-main"><h2 class="text-center">${materiais.material[index].titulo}</h2></div>
             <center><iframe width="750" height="500" src=${name} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><center>`
         if (usuarioPermissao) {
           textoHTML3 += `<div class="d-flex justify-content-center"><button class="mx-3 my-3 btn btn-danger" onclick="retirarConteudo(${index})">Retirar Conteúdo</button></div><br><br>`;
@@ -201,7 +201,7 @@ function achaUsuarioAtual(Id, usuariodb) {
   return false;//Se caiu aqui,usuario não está logado,e portanto não deve aparecer criar conteúdo
 }
 function criardbMensagem() {
-  let parser = localStorage.getItem("focus.ls.users");
+  let parser = localStorage.getItem("db");
   let objDados = JSON.parse(parser);
   let id0 = objDados.users[0].user_id;
   let id1 = objDados.users[1].user_id;
@@ -220,9 +220,23 @@ function salvaDBMensagen(DB) {
 }
 window.onload = function () {
   if (localStorage.getItem("primeiraVezDb") === null) {
-    let conteudoDb = { material: [{ disciplina: 'Geografia', url: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec neque ac nisl aliquam viverra.', titulo: 'loren y', textoImagemVideo: '0' },
-   {disciplina: 'matematica' , url: 'img/mate-a-matica.jpg' , titulo: ' quadro negro' , textoImagemVideo: '1'},
-   {disciplina: 'historia' , url: 'CTIs_RSPr84' , titulo: ' idade media' , textoImagemVideo: '2'}]}
+    let conteudoDb = { material: [{ disciplina: 'Geografia', url: `O relevo corresponde às irregularidades contidas na superfície terrestre. Sua formação pode ter duas origens, provenientes de fatores endógenos (internos) e exógenos (externos).<br><br>
+    <img src="img/relevos.jpeg" alt="Imagem representativa de relevos" width="400px" height="auto">
+    <br><br>
+
+    Os fatores internos da formação do relevo são o tectonismo e o vulcanismo. O tectonismo influencia na formação de relevo por meio das acomodações das placas litosféricas que podem ser de aproximação ou de afastamento.<br><br>
+    
+    Os movimentos da placas litosféricas são provocados pela quantidade de calor existente dentro da Terra, dando origem às correntes de convecção que podem ser convergentes e divergentes: a primeira quando as placas se chocam e a segunda quanto se afastam.<br><br>
+    
+    O processo de vulcanismo interfere na formação do relevo, pois quando existe uma grande pressão no interior da Terra, as camadas da crosta se rompem. De uma forma geral, o vulcanismo dá origem a duas formas de relevo: as montanhas e os planaltos.<br><br>
+    
+    Já os fatores exógenos (externos) formam o relevo por meio de erosões, que podem ser pluviais (provocadas pela água da chuva) e fluviais (provocadas pelas águas dos rios e mar). Nesses casos, o relevo sofre alterações, pois o escoamento das águas o desgasta dando a ele gradativamente novas formas.<br><br>
+    
+    As geleiras também promovem modificações no relevo através da erosão glacial, quando ocorrem avalanches e porções de rochas se desprendem, alterando, assim, o relevo do local. Por fim, existe a modificação do relevo por meio da ação dos ventos, denominada erosão eólica.<br><br>
+    
+    O homem também é um agente externo de transformação do relevo. Essas modificações são provenientes das atividades e das relações humanas. O homem, através do trabalho, transforma o relevo segundo os interesses econômicos ou mesmo para habitação.<br><br><strong>Fonte: mundoeducacao.uol.com.br</strong>`, titulo: 'Formação de relevos', textoImagemVideo: '0' },
+   {disciplina: 'Matemática' , url: 'img/mate-a-matica.jpg' , titulo: 'Introdução à adição' , textoImagemVideo: '1'},
+   {disciplina: 'História' , url: 'CTIs_RSPr84' , titulo: 'Idade Média' , textoImagemVideo: '2'}]}
 
     localStorage.setItem("materialTodo", JSON.stringify(conteudoDb));
     localStorage.setItem("primeiraVezDb", true);

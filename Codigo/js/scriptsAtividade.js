@@ -411,41 +411,41 @@ function mostrarAtividadeTela() {
   } else {
     if (index >= valor) {
       let textoHTML1 = `<div class="divQuestao" id="mostrarAtividade">
-      <div id="disciplinaMostrarAtividade" class="center"><h1 class="ex-title">${atividades2.atividade[index - valor].disciplina}</h1></div>
+      <div id="disciplinaMostrarAtividade" class="div-title"><h1 class="ex-title">${atividades2.atividade[index - valor].disciplina}</h1></div>
       <div id="tituloMostrarAtividade" class="center"><h1 class="subtitulo">${atividades2.atividade[index - valor].titulo}</h1></div>
       <div id="enunciadoMostrarAtividade" class="justify enunciado">${atividades2.atividade[index - valor].enunciado}</div>
-      <div id="opcao1MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao1}"><span class="negrito">A</span>   <div class="btn btn-light opcao" id="respostaOpcao1" value="${atividades2.atividade[index - valor].opcoes.opcao1}">${atividades2.atividade[index - valor].opcoes.opcao1}</div></div>
-      <div id="opcao2MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao2}"><span class="negrito">B</span>   <div class="btn btn-light opcao" id="respostaOpcao2" value="${atividades2.atividade[index - valor].opcoes.opcao2}">${atividades2.atividade[index - valor].opcoes.opcao2}</div></div>
-      <div id="opcao3MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao3}"><span class="negrito">C</span>   <div class="btn btn-light opcao" id="respostaOpcao3" value="${atividades2.atividade[index - valor].opcoes.opcao3}">${atividades2.atividade[index - valor].opcoes.opcao3}</div></div>
-      <div id="opcao4MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.resposta}"><span class="negrito">D</span>   <div class="btn btn-light opcao" id="respostaOpcao4">${atividades2.atividade[index - valor].opcoes.resposta}</div></div>
+      <div id="opcao1MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao1}"><span class="negrito">A</span>   <div class="opcao" id="respostaOpcao1" value="${atividades2.atividade[index - valor].opcoes.opcao1}">${atividades2.atividade[index - valor].opcoes.opcao1}</div></div>
+      <div id="opcao2MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao2}"><span class="negrito">B</span>   <div class="opcao" id="respostaOpcao2" value="${atividades2.atividade[index - valor].opcoes.opcao2}">${atividades2.atividade[index - valor].opcoes.opcao2}</div></div>
+      <div id="opcao3MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao3}"><span class="negrito">C</span>   <div class="opcao" id="respostaOpcao3" value="${atividades2.atividade[index - valor].opcoes.opcao3}">${atividades2.atividade[index - valor].opcoes.opcao3}</div></div>
+      <div id="opcao4MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.resposta}"><span class="negrito">D</span>   <div class="opcao" id="respostaOpcao4">${atividades2.atividade[index - valor].opcoes.resposta}</div></div>
       </div><span id="validaRespostaSpan" class="negrito center"></span>`;
 
       let textoHTML2 = `<div class="divQuestao" id="mostrarAtividade">
-      <div id="disciplinaMostrarAtividade" class="center"><h1 class="ex-title">${atividades2.atividade[index - valor].disciplina}</h1></div>
+      <div id="disciplinaMostrarAtividade" class="div-title"><h1 class="ex-title">${atividades2.atividade[index - valor].disciplina}</h1></div>
       <div id="tituloMostrarAtividade" class="center"><h1 class="subtitulo">${atividades2.atividade[index - valor].titulo}</h1></div>
       <div id="enunciadoMostrarAtividade" class="justify enunciado">${atividades2.atividade[index - valor].enunciado}</div>
-      <div id="opcao1MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao1}"><span class="negrito">A</span>   <div class="btn btn-light opcao" id="respostaOpcao1" value="${atividades2.atividade[index - valor].opcoes.opcao1}">${atividades2.atividade[index - valor].opcoes.opcao1}</div></div>
-      <div id="opcao2MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao2}"><span class="negrito">B</span>   <div class="btn btn-light opcao" id="respostaOpcao2" value="${atividades2.atividade[index - valor].opcoes.opcao2}">${atividades2.atividade[index - valor].opcoes.opcao2}</div></div>
-      <div id="opcao3MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.resposta}"><span class="negrito">C</span>   <div class="btn btn-light opcao" id="respostaOpcao3" value="${atividades2.atividade[index - valor].opcoes.resposta}">${atividades2.atividade[index - valor].opcoes.resposta}</div></div>
-      <div id="opcao4MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao3}"><span class="negrito">D</span>   <div class="btn btn-light opcao" id="respostaOpcao4" value="${atividades2.atividade[index - valor].opcoes.opcao3}">${atividades2.atividade[index - valor].opcoes.opcao3}</div></div>
+      <div id="opcao1MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao1}"><span class="negrito">A</span>   <div class="opcao" id="respostaOpcao1" value="${atividades2.atividade[index - valor].opcoes.opcao1}">${atividades2.atividade[index - valor].opcoes.opcao1}</div></div>
+      <div id="opcao2MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao2}"><span class="negrito">B</span>   <div class="opcao" id="respostaOpcao2" value="${atividades2.atividade[index - valor].opcoes.opcao2}">${atividades2.atividade[index - valor].opcoes.opcao2}</div></div>
+      <div id="opcao3MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.resposta}"><span class="negrito">C</span>   <div class="opcao" id="respostaOpcao3" value="${atividades2.atividade[index - valor].opcoes.resposta}">${atividades2.atividade[index - valor].opcoes.resposta}</div></div>
+      <div id="opcao4MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao3}"><span class="negrito">D</span>   <div class="opcao" id="respostaOpcao4" value="${atividades2.atividade[index - valor].opcoes.opcao3}">${atividades2.atividade[index - valor].opcoes.opcao3}</div></div>
       </div><span id="validaRespostaSpan" class="negrito center"></span>`;
       let textoHTML3 = `<div class="divQuestao" id="mostrarAtividade">
-      <div id="disciplinaMostrarAtividade" class="center"><h1 class="ex-title">${atividades2.atividade[index - valor].disciplina}</h1></div>
+      <div id="disciplinaMostrarAtividade" class="div-title"><h1 class="ex-title">${atividades2.atividade[index - valor].disciplina}</h1></div>
       <div id="tituloMostrarAtividade" class="center"><h1 class="subtitulo">${atividades2.atividade[index - valor].titulo}</h1></div>
       <div id="enunciadoMostrarAtividade" class="justify enunciado">${atividades2.atividade[index - valor].enunciado}</div>
-      <div id="opcao1MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao1}"><span class="negrito">A</span>   <div class="btn btn-light opcao" id="respostaOpcao1" value="${atividades2.atividade[index - valor].opcoes.opcao1}">${atividades2.atividade[index - valor].opcoes.opcao1}</div></div>
-      <div id="opcao2MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.resposta}"><span class="negrito">B</span>   <div class="btn btn-light opcao" id="respostaOpcao2" value="${atividades2.atividade[index - valor].opcoes.resposta}">${atividades2.atividade[index - valor].opcoes.resposta}</div></div>
-      <div id="opcao3MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao2}"><span class="negrito">C</span>   <div class="btn btn-light opcao" id="respostaOpcao3" value="${atividades2.atividade[index - valor].opcoes.opcao2}">${atividades2.atividade[index - valor].opcoes.opcao2}</div></div>
-      <div id="opcao4MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao3}"><span class="negrito">D</span>   <div class="btn btn-light opcao" id="respostaOpcao4" value="${atividades2.atividade[index - valor].opcoes.opcao3}">${atividades2.atividade[index - valor].opcoes.opcao3}</div></div>
+      <div id="opcao1MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao1}"><span class="negrito">A</span>   <div class="opcao" id="respostaOpcao1" value="${atividades2.atividade[index - valor].opcoes.opcao1}">${atividades2.atividade[index - valor].opcoes.opcao1}</div></div>
+      <div id="opcao2MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.resposta}"><span class="negrito">B</span>   <div class="opcao" id="respostaOpcao2" value="${atividades2.atividade[index - valor].opcoes.resposta}">${atividades2.atividade[index - valor].opcoes.resposta}</div></div>
+      <div id="opcao3MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao2}"><span class="negrito">C</span>   <div class="opcao" id="respostaOpcao3" value="${atividades2.atividade[index - valor].opcoes.opcao2}">${atividades2.atividade[index - valor].opcoes.opcao2}</div></div>
+      <div id="opcao4MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao3}"><span class="negrito">D</span>   <div class="opcao" id="respostaOpcao4" value="${atividades2.atividade[index - valor].opcoes.opcao3}">${atividades2.atividade[index - valor].opcoes.opcao3}</div></div>
       </div><span id="validaRespostaSpan" class="negrito center"></span>`;
       let textoHTML4 = `<div class="divQuestao" id="mostrarAtividade">
-      <div id="disciplinaMostrarAtividade" class="center"><h1 class="ex-title">${atividades2.atividade[index - valor].disciplina}</h1></div>
+      <div id="disciplinaMostrarAtividade" class="div-title"><h1 class="ex-title">${atividades2.atividade[index - valor].disciplina}</h1></div>
       <div id="tituloMostrarAtividade" class="center"><h1 class="subtitulo">${atividades2.atividade[index - valor].titulo}</h1></div>
       <div id="enunciadoMostrarAtividade" class="justify enunciado">${atividades2.atividade[index - valor].enunciado}</div>
-      <div id="opcao1MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.resposta}"><span class="negrito">A</span>   <div class="btn btn-light opcao" id="respostaOpcao1" value="${atividades2.atividade[index - valor].opcoes.resposta}">${atividades2.atividade[index - valor].opcoes.resposta}</div></div>
-      <div id="opcao2MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao1}"><span class="negrito">B</span>   <div class="btn btn-light opcao" id="respostaOpcao2" value="${atividades2.atividade[index - valor].opcoes.opcao1}">${atividades2.atividade[index - valor].opcoes.opcao1}</div></div>
-      <div id="opcao3MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao2}"><span class="negrito">C</span>   <div class="btn btn-light opcao" id="respostaOpcao3" value="${atividades2.atividade[index - valor].opcoes.opcao2}">${atividades2.atividade[index - valor].opcoes.opcao2}</div></div>
-      <div id="opcao4MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao3}"><span class="negrito">D</span>   <div class="btn btn-light opcao" id="respostaOpcao4" value="${atividades2.atividade[index - valor].opcoes.opcao3}">${atividades2.atividade[index - valor].opcoes.opcao3}</div></div>
+      <div id="opcao1MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.resposta}"><span class="negrito">A</span>   <div class="opcao" id="respostaOpcao1" value="${atividades2.atividade[index - valor].opcoes.resposta}">${atividades2.atividade[index - valor].opcoes.resposta}</div></div>
+      <div id="opcao2MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao1}"><span class="negrito">B</span>   <div class="opcao" id="respostaOpcao2" value="${atividades2.atividade[index - valor].opcoes.opcao1}">${atividades2.atividade[index - valor].opcoes.opcao1}</div></div>
+      <div id="opcao3MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao2}"><span class="negrito">C</span>   <div class="opcao" id="respostaOpcao3" value="${atividades2.atividade[index - valor].opcoes.opcao2}">${atividades2.atividade[index - valor].opcoes.opcao2}</div></div>
+      <div id="opcao4MostrarAtividade" class="justify ex-option" value="${atividades2.atividade[index - valor].opcoes.opcao3}"><span class="negrito">D</span>   <div class="opcao" id="respostaOpcao4" value="${atividades2.atividade[index - valor].opcoes.opcao3}">${atividades2.atividade[index - valor].opcoes.opcao3}</div></div>
       </div><span id="validaRespostaSpan" class="negrito center"></span>`;
 
       switch (expr) {
@@ -509,18 +509,28 @@ function validarResposta(opcaoValue, opcaoBotaoClicado, opcaoBotaoNaoClicado1, o
 
   if (opcaoValue == atividades.atividade[index - 1].opcoes.resposta) {
     spanResposta.innerHTML = "Resposta certa :)";
-    spanResposta.style.color = "#23CC00";
-    opcaoBotaoClicado.style.background = "#32DD22";
-    opcaoBotaoNaoClicado1.style.background = "#F8F9FA";
-    opcaoBotaoNaoClicado2.style.background = "#F8F9FA";
-    opcaoBotaoNaoClicado3.style.background = "#F8F9FA";
+    spanResposta.style.color = "#0f0";
+    opcaoBotaoClicado.style.background = "#0f0";
+    opcaoBotaoClicado.style.color = "#000";
+    opcaoBotaoNaoClicado1.style.background = "#fff";
+    opcaoBotaoNaoClicado1.style.color = "#000";
+    opcaoBotaoNaoClicado2.style.background = "#fff";
+    opcaoBotaoNaoClicado2.style.color = "#000";
+    opcaoBotaoNaoClicado3.style.background = "#fff";
+    opcaoBotaoNaoClicado3.style.color = "#000";
+
   } else {
     spanResposta.innerHTML = "Resposta errada :(";
-    spanResposta.style.color = "#c00221";
-    opcaoBotaoClicado.style.background = "#D44556";
-    opcaoBotaoNaoClicado1.style.background = "#F8F9FA";
-    opcaoBotaoNaoClicado2.style.background = "#F8F9FA";
-    opcaoBotaoNaoClicado3.style.background = "#F8F9FA";
+    spanResposta.style.color = "var(--wrong-answer-red)";
+    opcaoBotaoClicado.style.background = "var(--wrong-answer-red)";
+    opcaoBotaoClicado.style.color = "#fff";
+    opcaoBotaoNaoClicado1.style.background = "#fff";
+    opcaoBotaoNaoClicado1.style.color = "#000";
+    opcaoBotaoNaoClicado2.style.background = "#fff";
+    opcaoBotaoNaoClicado2.style.color = "#000";
+    opcaoBotaoNaoClicado3.style.background = "#fff";
+    opcaoBotaoNaoClicado3.style.color = "#000";
+  
   }
 
 }

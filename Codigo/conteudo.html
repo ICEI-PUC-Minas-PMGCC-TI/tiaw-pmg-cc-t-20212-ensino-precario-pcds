@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/37e4898af2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style-main.css">
-    <link rel="stylesheet" href="styles/style-conteudo.css">
 </head>
 
 <body>
@@ -20,7 +19,10 @@
             </div>
             <h1 class="nav-top-logo">FOCUS</h1>
           </div>
-          <input type="text" class="nav-top-input" placeholder="Search for a keyword" id="searchInputId">
+          <div>
+            <input type="text" class="nav-top-input" placeholder="Search for a keyword" id="searchInputId">
+            <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket icon-l"></i></a>
+          </div>
         </nav>
       </header>
     
@@ -39,25 +41,24 @@
                             Escolha o tipo de conteúdo desejado
                         </h2>
         
-                        <select id="tipoMaterial" class="btn btn-light">
+                        <select id="tipoMaterial" class="dropdown-toggle">
                             <option hidden selected disabled>Selecione o tipo:</option>
                             <option value="texto">Texto</option>
                             <option value="imagem">Imagem</option>
                             <option value="video">Video</option>
                         </select>
-                        <button id="btnConteudo" class="btn btn-secondary">Ok</button>
+                        <button id="btnConteudo">Ok</button>
                     </div>
-                    <div class="ml-2" id="conteudoColocado">
+                    <div class="content-div" id="conteudoColocado">
                         <!--Aqui fica a parte de colocar novo conteudo,criada dinamicamente-->
                     </div>
                     <div class="d-block">
-                        <select id="conteudoVer" class="btn btn-light">
+                        <select id="conteudoVer" class="dropdown-toggle">
                             <option value=3 hidden selected disabled>Selecione o conteúdo a ver:</option>
-        
                         </select>
-                        <button id="btnConteudoMostrar" class="btn btn-secondary">Ok</button>
+                        <button id="btnConteudoMostrar" class="btn btn-secondary">Visualizar conteúdo</button>
                     </div>
-                    <div class="d-flex flex-column justify-content-between" id="conteudoPostado">
+                    <div id="conteudoPostado">
                         <!--Vou jogar os conteudos criados aqui dentro-->
                     </div>
             </section>

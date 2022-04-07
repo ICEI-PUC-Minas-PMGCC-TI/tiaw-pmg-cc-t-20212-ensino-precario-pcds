@@ -41,20 +41,25 @@ function toggleAside(){
   
 
 function achaUsuarioAtual(Id, usuariodb) {
-    for (i = 0; i < usuariodb.users.length; i++) {
+    for (let i = 0; i < usuariodb.users.length; i++) {
         let usuario = usuariodb.users[i];
-        if (usuario.usuario_id == Id) {
+        if (usuario.user_id == Id) {
             return true;
         }
     }
     return false;//Se caiu aqui,usuario não está logado,e portanto não deve estar aqui
 }
+
+function achaUsuarioPorUsername(Id, usuariodb) {
+    return true;
+}
+
 function achaNomePorId(ID, DB) {
     let resposta = "erro";
-    for (i = 0; i < DB.users.length; i++) {
+    for (let i = 0; i < DB.users.length; i++) {
         let usuario = DB.users[i];
-        if (usuario.usuario_id == ID) {
-            resposta = usuario.nome;
+        if (usuario.user_id == ID) {
+            resposta = usuario.name;
             return resposta;
         }
     }
@@ -91,12 +96,12 @@ function adicionaUsuariosDropdown(objDados) {
     let IDAtual = localStorage.getItem("usuarioAtual")
     dropdown.innerHTML = '<option selected disabled value = 0>Selecione para quem a mensagem é:</option>';
     for (i = 0; i < objDados.users.length; i++) {
-        if (IDAtual != objDados.users[i].usuario_id) {
+        if (IDAtual != objDados.users[i].user_id) {
             let option = document.createElement('option');
-            let text = document.createTextNode(objDados.users[i].nome);
+            let text = document.createTextNode(objDados.users[i].name);
             option.appendChild(text);
             dropdown.appendChild(option);
-            option.setAttribute('value', objDados.users[i].usuario_id);
+            option.setAttribute('value', objDados.users[i].user_id);
         }
     }
 }
@@ -210,8 +215,8 @@ window.onload = function () {
     if (!(localStorage.getItem("db") === null)) {
         let parser = localStorage.getItem("db");
         let objDados = JSON.parse(parser);
-        let IDUsuario = localStorage.getItem("usuarioAtual");
-        let usuarioPermissao = achaUsuarioAtual(IDUsuario, objDados);
+        let IDUsuario = sessionStorage.getItem("focus.ss.user");
+        let usuarioPermissao = achaUsuarioPorUsername(IDUsuario, objDados);
         if (!usuarioPermissao) {
 
             alert("É necessário logar antes!");
@@ -224,7 +229,6 @@ window.onload = function () {
             if (!dbMensagens) {
                 criardbMensagem(IDUsuario);
             }
-            dropdownMensagens(objDados, IDUsuario);
         }
     } else {
         alert("É necessário logar antes!");

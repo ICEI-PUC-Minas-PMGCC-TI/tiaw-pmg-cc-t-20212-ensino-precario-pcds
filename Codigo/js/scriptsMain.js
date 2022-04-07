@@ -38,18 +38,17 @@ window.onload = function(){
         let atividades = JSON.parse(parser);
         let tamanho = atividades.atividade.length;
         let tela = document.getElementById("tela");
-        tela.innerHTML = tela.innerHTML + `<div class="block"><h1 class="titulo-main"> Atividades </h1></div>`;
         let i = 0;
-
         for(i; i < tamanho; i = i + 1){
             tela.innerHTML = tela.innerHTML + `
             <div class="card-ex">
               <div class="card-title">
-                <h1 class="card-title">Atividade "${atividades.atividade[i].titulo}"</h1>
+                <h1 class="card-title">Atividade - ${atividades.atividade[i].disciplina}</h1>
               </div>
               <div class="card-body">
+                <strong><p class="card-text">${atividades.atividade[i].titulo}</p></strong>
                 <p class="card-text">Matéria: ${atividades.atividade[i].materia}</p>
-                <a href="atividade.html"><button>Página de Atividades</button></a>
+                <a href="atividade.html"><button>Ver Atividade</button></a>
               </div>
             </div>
             `;
@@ -60,43 +59,40 @@ window.onload = function(){
         let materiais = JSON.parse(parser);
         let tamanho = materiais.material.length;
         let tela = document.getElementById("tela");
-        tela.innerHTML = tela.innerHTML + `<div class="block"><h1 class="titulo-main"> Conteúdos </h1></div>`;
         let i = 0;
         for(i; i < tamanho; i = i + 1){
             tela.innerHTML = tela.innerHTML + `
             <div class="card-ex">
               <div class="card-title">
-                <h1 class="card-title">Atividade "${materiais.material[i].disciplina}"</h1>
+                <h1 class="card-title">Conteúdo - ${materiais.material[i].disciplina}</h1>
               </div>
               <div class="card-body">
                 <p class="card-text">Matéria: ${materiais.material[i].titulo}</p>
-                <a href="conteudo.html"><button>Página de Conteúdos</button></a>
+                <a href="conteudo.html"><button>Ver Conteúdo</button></a>
               </div>
             </div>
             `;
         }
     }
     if(localStorage.getItem("dbMensagens")){
-        let parser1 = localStorage.getItem("focus.ls.users");
+        let parser1 = localStorage.getItem("db");
         let objDados = JSON.parse(parser1)
         let usuarioAtualId = localStorage.getItem("usuarioAtual");
         let parser = localStorage.getItem("dbMensagens");
         let mensagensJs = JSON.parse(parser);
         let tamanho = mensagensJs.mensagens.length;
         let tela = document.getElementById("tela");
-        tela.innerHTML = tela.innerHTML + `<div class="block"><h1 class="titulo-main"> Mensagens </h1></div>`;
         let i = 0;
-        
         for(i; i < tamanho; i = i + 1){
             if(mensagensJs.mensagens[i].para == achaUsuarioAtualId(usuarioAtualId, objDados)){
                 tela.innerHTML = tela.innerHTML + `
                 <div class="card-ex">
                     <div class="card-title">
-                        <h1 class="card-title">Atividade "${achaNomePorId(mensagensJs.mensagens[i].de,objDados)}"</h1>
+                        <h1 class="card-title">Mensagem de "${achaNomePorId(mensagensJs.mensagens[i].de,objDados)}"</h1>
                     </div>
                   <div class="card-body">
                     <p class="card-text">Assunto: ${mensagensJs.mensagens[i].titulo}</p>
-                    <a href="mensagem.html"><button>Página de mensagens</button></a>
+                    <a href="mensagem.html"><button>Mensagen</button></a>
                   </div>
                 </div>
                 `;
