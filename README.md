@@ -1,6 +1,6 @@
 
 # FOCUS - Educação Mais Acessível
-
+## Muitas mudanças ainda ocorrerão no projeto para adaptá-lo para o back-end em Java, as instruções atuais podem não condizer com a realidade do projeto.
 Um site que possibilita o aprendizado no tempo do aluno PCD.
 Ele poderá,através do site,ver reforços de conteúdos preparados
 por professores que entendem suas dificuldades.
